@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SetsOfElements
 {
-    internal class Program
+    internal class SetsOfElements
     {
         static void Main(string[] args)
         {
