@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Wardrobe
 {
-    internal class Program
+    internal class Wardrobe
     {
         static void Main(string[] args)
         {
