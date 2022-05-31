@@ -8,13 +8,13 @@ namespace CustomMinFunction
     {
         static void Main(string[] args)
         {
-            List<int> input = Console.ReadLine()
+            List<int> numbers = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToList();
 
-            Func<int , int> smallestNumber = number => input.Min();
-            Console.WriteLine(smallestNumber);
+            Func<List<int>, int> smallestNumber = number => numbers.Min();
+            Console.WriteLine(smallestNumber(numbers));
         }
     }
 }
