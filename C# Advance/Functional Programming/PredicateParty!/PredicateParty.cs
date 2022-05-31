@@ -13,11 +13,12 @@ namespace PredicateParty
                 .ToList();
 
             string command = Console.ReadLine();
+
             
 
             while (command != "Party!")
             {
-                Predicate<string> predicate = GetPredicate(command);             
+                Predicate<string> predicate = GetPredicate(command);
 
                 if (command.StartsWith("Double"))
                 {
@@ -27,7 +28,8 @@ namespace PredicateParty
 
                         if (predicate(person))
                         {
-                            people.Insert(people.IndexOf(person) + 1 ,person);
+                            people.Insert(i + 1 ,person);
+                            i++;
                         }
                     }
                 }
