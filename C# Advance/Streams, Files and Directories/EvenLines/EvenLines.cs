@@ -15,6 +15,7 @@
 
         public static void ProcessLines(string inputFilePath)
         {
+<<<<<<< HEAD:C# Advance/Steams, Files and Directories/EvenLines/EvenLines.cs
             using (StreamReader reader = new StreamReader(inputFilePath))
             {
                 int counter = -1; // count of rows
@@ -48,6 +49,9 @@
                 .Replace(".", "@")
                 .Replace("!", "@")
                 .Replace("?", "@");
+=======
+            return nameof(EvenLines);
+>>>>>>> dc44c8e52735c768f6ecd76e53979fe0773bab3e:C# Advance/Streams, Files and Directories/EvenLines/EvenLines.cs
         }
     }
 }
