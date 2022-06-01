@@ -36,12 +36,12 @@
             }
         }
 
-        private static string Revarce(string line)
+        public static string Revarce(string line)
         {
             return string.Join (" ", line.Split(' ').Reverse());
         }
 
-        private static string Replace(string line)
+        public static string Replace(string line)
         {
             return line.Replace("-", "@")
                 .Replace(",", "@")
