@@ -41,7 +41,7 @@ namespace DefiningClasses
 
         public void Drive(double amountOfKm)
         {
-            double neededLiters = (amountOfKm / 100) * FuelConsumptionPerKilometer;
+            double neededLiters = amountOfKm * FuelConsumptionPerKilometer;
 
             if (FuelAmount >= neededLiters)
             {
