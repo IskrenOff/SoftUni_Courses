@@ -22,6 +22,8 @@ namespace MealPlan
                 {"steak" , 790},
             };
 
+            int mealsCnt = 0;
+
             // Fill the Stack with calories intake per day
             Stack<int> caloriesStackPerDay = new Stack<int>(caloriesPerDay);
 
@@ -31,12 +33,9 @@ namespace MealPlan
                 {
                     case "salad":
                         int currentCalories = caloriesStackPerDay.Pop();
+                        currentCalories -= mealsData[meals[i]];
                         
-                        if (currentCalories >= mealsData[meals[i]])
-                        {
-                            currentCalories -= mealsData[meals[i]];
-                        }
-                        else if (currentCalories < mealsData[meals[i]])
+                        if (currentCalories < mealsData[meals[i]])
                         {
                             currentCalories = mealsData[meals[i]] - currentCalories;
                         }
@@ -55,58 +54,24 @@ namespace MealPlan
                         }
                         break;
                     case "soup":
-                        int currentCalories2 = caloriesStackPerDay.Pop();
-
-                        if (currentCalories2 >= mealsData[meals[i]])
-                        {
-                            currentCalories2 -= mealsData[meals[i]];
-                        }
-                        else if (currentCalories2 < mealsData[meals[i]])
-                        {
-                            currentCalories2 = mealsData[meals[i]] - currentCalories2;
-                        }
-                        else if (currentCalories2 <= 0)
-                        {
-                            mealsData[meals[i]] -= currentCalories2;
-
-                            if (mealsData[meals[i]] <= 0)
-                            {
-                                mealsData.Remove(meals[i]);
-                            }
-                        }
-                        else
-                        {
-                            caloriesStackPerDay.Push(currentCalories2);
-                        }
+                        JohnCalories(mealsData,caloriesStackPerDay,meals);
                         break;
                     case "pasta":
                         break;
                     case "steak":
-                        int currentCalories3 = caloriesStackPerDay.Pop();
-
-                        if (currentCalories3 >= mealsData[meals[i]])
-                        {
-                            currentCalories3 -= mealsData[meals[i]];
-                        }
-                        else if (currentCalories3 < mealsData[meals[i]])
-                        {
-                            currentCalories = mealsData[meals[i]] - currentCalories3;
-                        }
-                        else if (currentCalories3 <= 0)
-                        {
-                            mealsData[meals[i]] -= currentCalories3;
-
-                            if (mealsData[meals[i]] <= 0)
-                            {
-                                mealsData.Remove(meals[i]);
-                            }
-                        }
-                        else
-                        {
-                            caloriesStackPerDay.Push(currentCalories3);
-                        }
+                        
                         break;
                 }
+            }
+        }
+
+        public static void JohnCalories(Dictionary<string, int> mealsData, Stack<int> caloriesStackPerDay, List<string> meals)
+        {
+            for (int i = 0; i < meals.Count; i++)
+            {
+                int currentCalories = caloriesStackPerDay.Pop();
+
+
             }
         }
     }
