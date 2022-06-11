@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BeaverAtWork
 {
-    internal class Program
+    internal class BeaverAtWork
     {
         static void Main(string[] args)
         {
