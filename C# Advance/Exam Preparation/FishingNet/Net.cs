@@ -25,7 +25,7 @@ namespace FishingNet
             get { return this.capacity; }
             set { this.capacity = value; }
         }
-        public int Count => this.Fish.Count;
+        public int Count => Fish.Count;
         public List<Fish> Fish
         {
             get => this.fish;
@@ -39,7 +39,7 @@ namespace FishingNet
             }
             if(Count == Capacity)
             {
-                return "Fishing net is full";
+                return "Fishing net is full.";
             }
             this.fish.Add(fish);
             return $"Successfully added {fish.FishType} to the fishing net.";
