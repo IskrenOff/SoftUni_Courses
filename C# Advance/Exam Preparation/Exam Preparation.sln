@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryShop", "BakeryShop\Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaverAtWork", "BeaverAtWork\BeaverAtWork.csproj", "{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingNet", "FishingNet\FishingNet.csproj", "{CE79858E-2A86-47AA-A096-36D454B0675E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE79858E-2A86-47AA-A096-36D454B0675E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE79858E-2A86-47AA-A096-36D454B0675E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE79858E-2A86-47AA-A096-36D454B0675E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE79858E-2A86-47AA-A096-36D454B0675E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
