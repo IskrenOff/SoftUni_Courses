@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,8 +36,8 @@ namespace BakeryShop
                 double flour = flourStorage.Peek();
                 double result = water + flour;
                 double[] waterAndFlouerRatio = new double[2];
-                waterAndFlouerRatio[0] = (water * 100) / result;
-                waterAndFlouerRatio[1] = (flour * 100) / result;
+                waterAndFlouerRatio[0] = (water / result) * 100;
+                waterAndFlouerRatio[1] = (flour / result) * 100;
 
                 if (waterAndFlouerRatio[0] == 50 && waterAndFlouerRatio[1] == 50)
                 {
@@ -70,7 +69,7 @@ namespace BakeryShop
                     double currentFlour = flourStorage.Pop();
                     double waterAndFlourDiff = currentFlour - currentWater;
                     showcaseOnBakery["Croissant"]++;
-                    flourStorage.Push(currentFlour);
+                    flourStorage.Push(waterAndFlourDiff);
                 }
             }
 

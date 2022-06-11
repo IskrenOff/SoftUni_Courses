@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TruffleHunter", "TruffleHun
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoo", "Zoo\Zoo.csproj", "{C228E964-0CA4-469A-B913-9A9CF9A19CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryShop", "BakeryShop\BakeryShop.csproj", "{6468DAD3-A591-4736-86BB-F2852F97C484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryShop", "BakeryShop\BakeryShop.csproj", "{6468DAD3-A591-4736-86BB-F2852F97C484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaverAtWork", "BeaverAtWork\BeaverAtWork.csproj", "{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6468DAD3-A591-4736-86BB-F2852F97C484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6468DAD3-A591-4736-86BB-F2852F97C484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6468DAD3-A591-4736-86BB-F2852F97C484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
