@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoo", "Zoo\Zoo.csproj", "{C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryShop", "BakeryShop\BakeryShop.csproj", "{6468DAD3-A591-4736-86BB-F2852F97C484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaverAtWork", "BeaverAtWork\BeaverAtWork.csproj", "{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeaverAtWork", "BeaverAtWork\BeaverAtWork.csproj", "{9327EABF-A3E4-43BE-BD69-5EA59AD630E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingNet", "FishingNet\FishingNet.csproj", "{CE79858E-2A86-47AA-A096-36D454B0675E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishingNet", "FishingNet\FishingNet.csproj", "{CE79858E-2A86-47AA-A096-36D454B0675E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blacksmith", "Blacksmith\Blacksmith.csproj", "{DE4FA2F1-9D5E-4069-8820-C1DCFDD7F81C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{CE79858E-2A86-47AA-A096-36D454B0675E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE79858E-2A86-47AA-A096-36D454B0675E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE79858E-2A86-47AA-A096-36D454B0675E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4FA2F1-9D5E-4069-8820-C1DCFDD7F81C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4FA2F1-9D5E-4069-8820-C1DCFDD7F81C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4FA2F1-9D5E-4069-8820-C1DCFDD7F81C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4FA2F1-9D5E-4069-8820-C1DCFDD7F81C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
