@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Blacksmith
 {
-    internal class Program
+    internal class Blacksmith
     {
         static void Main(string[] args)
         {
