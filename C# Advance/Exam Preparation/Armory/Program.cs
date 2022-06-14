@@ -6,6 +6,7 @@ namespace Armory
 {
     internal class Program
     {
+        public static char[,] armory;
         public static int goldCoins;
         public static int officerRow;
         public static int officerCol;
