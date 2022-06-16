@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drones", "Drones\Drones.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFinder", "FoodFinder\FoodFinder.csproj", "{354C0A82-6D2E-442B-91D3-ADF32353399B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawnWars", "PawnWars\PawnWars.csproj", "{8DE264F7-CCA4-4D6B-B162-2DAC2134ACE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{354C0A82-6D2E-442B-91D3-ADF32353399B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{354C0A82-6D2E-442B-91D3-ADF32353399B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{354C0A82-6D2E-442B-91D3-ADF32353399B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE264F7-CCA4-4D6B-B162-2DAC2134ACE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE264F7-CCA4-4D6B-B162-2DAC2134ACE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE264F7-CCA4-4D6B-B162-2DAC2134ACE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE264F7-CCA4-4D6B-B162-2DAC2134ACE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
