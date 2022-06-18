@@ -1,10 +1,12 @@
-﻿namespace ZipAndExtract
+﻿using System.IO.Compression;
+
+namespace ZipAndExtract
 {
     using System;
     using System.IO;
     public class ZipAndExtract
     {
-        static void Main()
+        static void Main(string[] args)
         {
             string inputFile = @"..\..\..\copyMe.png";
             string zipArchiveFile = @"..\..\..\archive.zip";
@@ -18,12 +20,19 @@
 
         public static void ZipFileToArchive(string inputFilePath, string zipArchiveFilePath)
         {
-            throw new NotImplementedException();
+            using var archive = ZipFile.Open(zipArchiveFilePath, ZipArchiveMode.Create);
+
+            string fileName = Path.GetFileName(inputFilePath);
+
+            archive.CreateEntryFromFile(inputFilePath, fileName);
         }
 
         public static void ExtractFileFromArchive(string zipArchiveFilePath, string fileName, string outputFilePath)
         {
-            throw new NotImplementedException();
+            var archive = ZipFile.OpenRead(zipArchiveFilePath);
+            var fileForExtraction = archive.GetEntry(fileName);
+
+            fileForExtraction.ExtractToFile(outputFilePath);
         }
     }
 }
