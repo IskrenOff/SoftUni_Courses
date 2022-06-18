@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvenLines", "EvenLines\EvenLines.csproj", "{D34ADBA3-D08A-4E2A-A50E-16DEE10F8542}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineNumbers", "LineNumbers\LineNumbers.csproj", "{FFCDEC1F-9198-4994-81C7-157941F83EE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D34ADBA3-D08A-4E2A-A50E-16DEE10F8542}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D34ADBA3-D08A-4E2A-A50E-16DEE10F8542}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D34ADBA3-D08A-4E2A-A50E-16DEE10F8542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFCDEC1F-9198-4994-81C7-157941F83EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFCDEC1F-9198-4994-81C7-157941F83EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFCDEC1F-9198-4994-81C7-157941F83EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFCDEC1F-9198-4994-81C7-157941F83EE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
