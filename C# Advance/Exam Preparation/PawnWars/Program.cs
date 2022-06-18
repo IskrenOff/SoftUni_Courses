@@ -57,6 +57,7 @@ namespace PawnWars
                 {
                     chessboard[whitePawnPosition[0], whitePawnPosition[1]] = '-';
                     whitePawnPosition[0]--;
+                    chessboard[whitePawnPosition[0], whitePawnPosition[1]] = 'w';
                 }
 
                 if (whitePawnPosition[0] == 0)
@@ -102,6 +103,7 @@ namespace PawnWars
                 {
                     chessboard[blackPawnPosition[0], blackPawnPosition[1]] = '-';
                     blackPawnPosition[0]++;
+                    chessboard[blackPawnPosition[0], blackPawnPosition[1]] = 'b';
 
                 }
                 if (blackPawnPosition[0] == 7)
