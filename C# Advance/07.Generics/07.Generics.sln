@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericBoxOfString", "GenericBoxOfString\GenericBoxOfString.csproj", "{983D69BD-EAD7-4286-8E47-3EA1FE6E3A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericBoxOfInteger", "GenericBoxOfInteger\GenericBoxOfInteger.csproj", "{4F39A291-A023-48EF-AA18-180195B0E49B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{983D69BD-EAD7-4286-8E47-3EA1FE6E3A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983D69BD-EAD7-4286-8E47-3EA1FE6E3A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983D69BD-EAD7-4286-8E47-3EA1FE6E3A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983D69BD-EAD7-4286-8E47-3EA1FE6E3A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F39A291-A023-48EF-AA18-180195B0E49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F39A291-A023-48EF-AA18-180195B0E49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F39A291-A023-48EF-AA18-180195B0E49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F39A291-A023-48EF-AA18-180195B0E49B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F77D5C76-3269-49A8-BE47-558373AB0F6D}
+	EndGlobalSection
+EndGlobal
