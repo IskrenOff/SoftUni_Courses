@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BirthdayCelebration
 {
-    internal class Program
+    internal class BirthdayCelebration
     {
         static void Main(string[] args)
         {
