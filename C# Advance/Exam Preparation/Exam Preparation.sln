@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawnWars", "PawnWars\PawnWa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket", "StockMarket\StockMarket.csproj", "{0FCD142A-E0C5-4FD2-AFB2-415AD46BFE2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayCelebration", "BirthdayCelebration\BirthdayCelebration.csproj", "{BAC0E73B-0E98-467E-A258-3B022CF35EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBattleOfTheFiveArmies", "TheBattleOfTheFiveArmies\TheBattleOfTheFiveArmies.csproj", "{A2CD6352-831E-44EC-A6EF-AEA4D8D4D6CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{0FCD142A-E0C5-4FD2-AFB2-415AD46BFE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FCD142A-E0C5-4FD2-AFB2-415AD46BFE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FCD142A-E0C5-4FD2-AFB2-415AD46BFE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC0E73B-0E98-467E-A258-3B022CF35EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC0E73B-0E98-467E-A258-3B022CF35EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC0E73B-0E98-467E-A258-3B022CF35EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC0E73B-0E98-467E-A258-3B022CF35EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2CD6352-831E-44EC-A6EF-AEA4D8D4D6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2CD6352-831E-44EC-A6EF-AEA4D8D4D6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2CD6352-831E-44EC-A6EF-AEA4D8D4D6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2CD6352-831E-44EC-A6EF-AEA4D8D4D6CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

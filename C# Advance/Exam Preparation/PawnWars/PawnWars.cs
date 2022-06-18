@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PawnWars
 {
-    internal class Program
+    internal class PawnWars
     {
         static void Main(string[] args)
         {
