@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionPoint", "ActionPrint\ActionPoint.csproj", "{891F1E8A-DA0D-4BD5-ADF7-BCC2D791775A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActionPoint", "ActionPrint\ActionPoint.csproj", "{891F1E8A-DA0D-4BD5-ADF7-BCC2D791775A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsOfHonor", "KnightsOfHonor\KnightsOfHonor.csproj", "{7321D090-D2B7-4486-89BE-DC195C13F1AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsOfHonor", "KnightsOfHonor\KnightsOfHonor.csproj", "{7321D090-D2B7-4486-89BE-DC195C13F1AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMinFunction", "CustomMinFunction\CustomMinFunction.csproj", "{DD355F34-E993-4E7F-AAE6-FFA4643F9990}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomMinFunction", "CustomMinFunction\CustomMinFunction.csproj", "{DD355F34-E993-4E7F-AAE6-FFA4643F9990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindEvensOrOdds", "FindEvensOrOdds\FindEvensOrOdds.csproj", "{6D3FB55A-0993-4B1F-9676-26886EB2BD5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindEvensOrOdds", "FindEvensOrOdds\FindEvensOrOdds.csproj", "{6D3FB55A-0993-4B1F-9676-26886EB2BD5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppliedArithmetics", "AppliedArithmetics\AppliedArithmetics.csproj", "{CAED0740-EAE5-4292-8862-6BF0D82C914C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppliedArithmetics", "AppliedArithmetics\AppliedArithmetics.csproj", "{CAED0740-EAE5-4292-8862-6BF0D82C914C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseAndExclude", "ReverseAndExclude\ReverseAndExclude.csproj", "{89897614-F14F-4918-8023-1F16879A20DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReverseAndExclude", "ReverseAndExclude\ReverseAndExclude.csproj", "{89897614-F14F-4918-8023-1F16879A20DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredicateParty", "PredicateParty!\PredicateParty.csproj", "{05423145-EC8B-4C28-BFD9-37D7ACA659DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicateParty", "PredicateParty!\PredicateParty.csproj", "{05423145-EC8B-4C28-BFD9-37D7ACA659DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePartyReservationFilterModule", "ThePartyReservationFilterModule\ThePartyReservationFilterModule.csproj", "{1C8DBDDC-9F97-4BEA-912E-41D1E0958120}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePartyReservationFilterModule", "ThePartyReservationFilterModule\ThePartyReservationFilterModule.csproj", "{1C8DBDDC-9F97-4BEA-912E-41D1E0958120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriFunction", "TriFunction\TriFunction.csproj", "{0C48CEA9-06FD-4DD1-ABE2-DB85E1CD8F99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriFunction", "TriFunction\TriFunction.csproj", "{0C48CEA9-06FD-4DD1-ABE2-DB85E1CD8F99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredicateForNames", "PredicateForNames\PredicateForNames.csproj", "{17E46CE8-0575-4270-9138-9D5CFE7FD7C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{0C48CEA9-06FD-4DD1-ABE2-DB85E1CD8F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C48CEA9-06FD-4DD1-ABE2-DB85E1CD8F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C48CEA9-06FD-4DD1-ABE2-DB85E1CD8F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E46CE8-0575-4270-9138-9D5CFE7FD7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E46CE8-0575-4270-9138-9D5CFE7FD7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E46CE8-0575-4270-9138-9D5CFE7FD7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E46CE8-0575-4270-9138-9D5CFE7FD7C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

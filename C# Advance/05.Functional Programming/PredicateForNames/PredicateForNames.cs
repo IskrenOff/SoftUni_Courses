@@ -1,12 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PredicateForNames
 {
-    internal class Program
+    internal class PredicateForNames
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int targetLength = int.Parse(Console.ReadLine());
+            List<string> names = Console.ReadLine().Split(' ').ToList();
+
+            Func<string, bool> function = name => name.Length <= targetLength;
+
+            names = names.Where(function).ToList();
+
+            Action<List<string>> print = names => Console.WriteLine(string.Join(Environment.NewLine, names));
+
+            print(names);
         }
     }
 }
