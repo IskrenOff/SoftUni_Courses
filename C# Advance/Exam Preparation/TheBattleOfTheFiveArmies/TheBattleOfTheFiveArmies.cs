@@ -5,7 +5,7 @@ using System.Data;
 
 namespace TheBattleOfTheFiveArmies
 {
-    internal class Program
+    internal class TheBattleOfTheFiveArmies
     {
         static int armor;
         static int armyRow;
