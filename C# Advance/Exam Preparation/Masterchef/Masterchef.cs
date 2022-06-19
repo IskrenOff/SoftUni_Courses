@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Masterchef
 {
-    internal class Program
+    internal class Masterchef
     {
         static void Main(string[] args)
         {
