@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBattleOfTheFiveArmies", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetRacing", "StreetRacing\StreetRacing.csproj", "{071AFD99-A647-4EFC-A64D-B06ABEF4BD0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef", "Masterchef\Masterchef.csproj", "{FE94E702-C749-4962-B2B9-334E1C62FAE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{071AFD99-A647-4EFC-A64D-B06ABEF4BD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{071AFD99-A647-4EFC-A64D-B06ABEF4BD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{071AFD99-A647-4EFC-A64D-B06ABEF4BD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE94E702-C749-4962-B2B9-334E1C62FAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE94E702-C749-4962-B2B9-334E1C62FAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE94E702-C749-4962-B2B9-334E1C62FAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE94E702-C749-4962-B2B9-334E1C62FAE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
