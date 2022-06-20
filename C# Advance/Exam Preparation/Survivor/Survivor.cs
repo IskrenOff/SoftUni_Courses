@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Survivor
 {
-    internal class Program
+    internal class Survivor
     {
         private static char[][] beach;
         private static int playerRow;
