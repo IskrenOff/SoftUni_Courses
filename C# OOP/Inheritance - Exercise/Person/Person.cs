@@ -22,14 +22,7 @@ namespace Person
         public int Age
         {
             get { return age; }
-            set 
-            {
-                if (value < 0)
-                {
-                    throw new Exception();
-                }
-                this.age = value;
-            }
+            set { age = value; }
         }
         public override string ToString()
         {
