@@ -49,13 +49,13 @@ namespace PizzaCalories
             {
                 if (value < 1 || value > 50)
                 {
-                    throw new ArgumentException($"{Type} weight should be in the range [1..50].");
+                    throw new InvalidOperationException($"{this.type} weight should be in the range [1..50].");
                 }
                 weight = value; 
             }
         }
 
         public double Calories
-            => 2 * Weight * toppingTypes[Type.ToLower()];
+            => 2 * this.Weight * toppingTypes[this.Type.ToLower()];
     }
 }

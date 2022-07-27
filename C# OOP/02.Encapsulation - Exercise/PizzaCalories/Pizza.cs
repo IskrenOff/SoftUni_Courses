@@ -42,6 +42,8 @@ namespace PizzaCalories
             private set { dough = value; }
         }
 
+        public IReadOnlyCollection<Topping> Toppings => toppings;
+
         public double CalculateTotalCalories ()
         {
             double result = Dough.Calories + toppings.Sum(x => x.Calories);
@@ -53,7 +55,7 @@ namespace PizzaCalories
         {
             if (toppings.Count == 10)
             {
-                throw new InvalidOperationException("Number of toppings should be in range [0..10].");
+                throw new ArgumentException("Number of toppings should be in range [0..10].");
             }
 
             toppings.Add (topping);

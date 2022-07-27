@@ -4,15 +4,15 @@ namespace PizzaCalories
 {
     public class StartUp
     {
-        public static void Main(string[] args)
+         static void Main(string[] args)
         {
             try
             {
                 string[] pizzaInfo = Console.ReadLine()
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                 string[] doughInfo = Console.ReadLine()
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
 
                 string pizzaName = pizzaInfo[1];
@@ -28,7 +28,7 @@ namespace PizzaCalories
                 while (toppingType != "END")
                 {
                     string[] toppingInfo = toppingType
-                        .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                        .Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     string type = toppingInfo[1];
                     double weight = double.Parse(toppingInfo[2]);
 

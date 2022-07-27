@@ -7,7 +7,7 @@ namespace PizzaCalories
     public class Dough
     {
 
-        private const string DoughExceptionMessage = "Invalid type of dough";
+        private const string DoughExceptionMessage = "Invalid type of dough.";
         private const string weightExceptionMessage = "Dough weight should be in the range [1..200].";
 
         private Dictionary<string, double> flourTypeCalories = new Dictionary<string, double>
@@ -20,7 +20,7 @@ namespace PizzaCalories
         {
             { "crispy", 0.9 },
             { "chewy", 1.1 },
-            { "homemade", 1.1 },
+            { "homemade", 1 },
         };
 
         private string flourType;
