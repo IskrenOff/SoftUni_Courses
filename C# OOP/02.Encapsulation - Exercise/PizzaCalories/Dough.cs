@@ -12,15 +12,15 @@ namespace PizzaCalories
 
         private Dictionary<string, double> flourTypeCalories = new Dictionary<string, double>
         {
-            { "White" , 1.5 },
-            { "Wholegrain" , 1 },
+            { "white" , 1.5 },
+            { "wholegrain" , 1 },
         };
 
         private Dictionary<string, double> bakingTechniqueCalories = new Dictionary<string, double>
         {
-            { "Crispy", 0.9 },
-            { "Chewy", 1.1 },
-            { "Homemade", 1 },
+            { "crispy", 0.9 },
+            { "chewy", 1.1 },
+            { "homemade", 1.1 },
         };
 
         private string flourType;
@@ -42,7 +42,7 @@ namespace PizzaCalories
             }
             private set 
             {
-                if (!bakingTechniqueCalories.ContainsKey(value))
+                if (!flourTypeCalories.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException(DoughExceptionMessage);
                 }
@@ -59,7 +59,7 @@ namespace PizzaCalories
             }
             private set 
             {
-                if (!flourTypeCalories.ContainsKey(value))
+                if (!bakingTechniqueCalories.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException(DoughExceptionMessage);
                 }
@@ -86,6 +86,6 @@ namespace PizzaCalories
         }
 
         public double Calories
-            => 2 * Weight * flourTypeCalories[this.FlourType] * bakingTechniqueCalories[this.BakingTechnique];
+            => 2 * Weight * flourTypeCalories[this.FlourType.ToLower()] * bakingTechniqueCalories[this.BakingTechnique.ToLower()];
     }
 }
