@@ -10,11 +10,17 @@ namespace PersonInfo
 
             int age = int.Parse(Console.ReadLine());
 
-            IPerson person = new Citizen(name, age);
+            string id = Console.ReadLine();
 
-            Console.WriteLine(person.Name);
+            string birthdate = Console.ReadLine();
 
-            Console.WriteLine(person.Age);
+            IIdentifiable identifiable = new Citizen(name, age, id, birthdate);
+
+            IBirthable birthable = new Citizen(name, age, id, birthdate);
+
+            Console.WriteLine(identifiable.Id);
+
+            Console.WriteLine(birthable.Birthdate);
         }
     }
 }
