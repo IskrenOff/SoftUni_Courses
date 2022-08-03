@@ -60,7 +60,7 @@ namespace CarRacing.Models.Racers
             {
                 return drivingExperience;
             }
-            private set
+            protected set
             {
                 if (value < 0 || value > 100)
                 {
@@ -76,7 +76,7 @@ namespace CarRacing.Models.Racers
             {
                 return car;
             }
-            private set
+            set
             {
                 if (value is null)
                 {
@@ -94,6 +94,16 @@ namespace CarRacing.Models.Racers
         public void Race()
         {
             Car.Drive();
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"{this.GetType().Name}: {this.Username}");
+            sb.AppendLine($"--Driving behavior: {this.RacingBehavior}");
+            sb.AppendLine($"--Driving experience: {this.DrivingExperience}");
+            sb.AppendLine($"--Car: {car.Make} {car.Model} ({car.VIN})");
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
