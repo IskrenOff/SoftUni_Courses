@@ -27,14 +27,14 @@ namespace CarRacing.Repositories
             models.Add(model);
         }
 
-        public ICar FindBy(string property)
-        {
-            return models.FirstOrDefault(x => x.VIN == property);
-        }
-
         public bool Remove(ICar model)
         {
             return models.Remove(model);
+        }
+
+        public ICar FindBy(string property)
+        {
+            return models.FirstOrDefault(x => x.VIN == property);
         }
     }
 }

@@ -11,5 +11,10 @@ namespace CarRacing.Models.Racers
             : base(username, "aggressive", 10, car)
         {
         }
+        public override void Race()
+        {
+            base.Race();
+            DrivingExperience += 5;
+        }
     }
 }

@@ -15,11 +15,11 @@ namespace CarRacing.Models.Cars
         private double fuelAvailable;
         private double fuelConsumptionPerRace;
 
-        protected Car(string make, string model, string vin, int horsePower, double fuelAvailable, double fuelConsumptionPerRace)
+        protected Car(string make, string model, string VIN, int horsePower, double fuelAvailable, double fuelConsumptionPerRace)
         {
             Make = make;
             Model = model;
-            VIN = vin;
+            this.VIN = VIN;
             HorsePower = horsePower;
             FuelAvailable = fuelAvailable;
             FuelConsumptionPerRace = fuelConsumptionPerRace;
@@ -79,7 +79,7 @@ namespace CarRacing.Models.Cars
             {
                 return horsePower;
             }
-            private set
+            protected set
             {
                 if (value < 0)
                 {
@@ -113,7 +113,7 @@ namespace CarRacing.Models.Cars
             }
             private set
             {
-                if (value < 0)
+                if (fuelConsumptionPerRace < 0)
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidCarFuelConsumption);
                 }

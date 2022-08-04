@@ -91,7 +91,7 @@ namespace CarRacing.Models.Racers
             return Car.FuelAvailable >= Car.FuelConsumptionPerRace;
         }
 
-        public void Race()
+        public virtual void Race()
         {
             Car.Drive();
         }

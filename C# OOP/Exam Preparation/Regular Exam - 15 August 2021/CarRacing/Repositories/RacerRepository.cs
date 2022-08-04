@@ -28,14 +28,14 @@ namespace CarRacing.Repositories
             models.Add(model);
         }
 
-        public IRacer FindBy(string property)
-        {
-            return models.FirstOrDefault(x => x.Username == property);
-        }
-
         public bool Remove(IRacer model)
         {
             return models.Remove(model);
+        }
+
+        public IRacer FindBy(string property)
+        {
+            return models.FirstOrDefault(x => x.Username == property);
         }
     }
 }
