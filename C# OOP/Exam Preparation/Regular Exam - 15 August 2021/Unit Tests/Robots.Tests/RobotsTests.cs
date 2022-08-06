@@ -16,7 +16,7 @@ namespace Robots.Tests
 
         [Test]
         public void ConstructorShouldThrowExceptionIfNegativeCapacityProvided()
-        {
+        { 
             Assert.Throws<ArgumentException>(() => new RobotManager(-50));
         }
 
