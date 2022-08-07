@@ -12,7 +12,7 @@ public class BankVault
     {
         this.vaultCells = new Dictionary<string, Item>
             {
-                {"A1", null},
+                {"A1", null},  
                 {"A2", null},
                 {"A3", null},
                 {"A4", null},
