@@ -10,6 +10,11 @@ namespace Easter.Models.Workshops
 {
     public class Workshop : IWorkshop
     {
+        public Workshop()
+        {
+
+        }
+
         public void Color(IEgg egg, IBunny bunny)
         {
             foreach (var dye in bunny.Dyes.Where(x => x.IsFinished() == false))

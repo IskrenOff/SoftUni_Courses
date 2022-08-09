@@ -10,7 +10,7 @@ namespace Easter.Models.Bunnies
             : base(name, 100)
         {
         }
-
+        
         public override void Work()
         {
             Energy -= 10;
