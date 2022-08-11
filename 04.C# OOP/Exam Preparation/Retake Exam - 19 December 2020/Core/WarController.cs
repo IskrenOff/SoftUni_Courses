@@ -5,6 +5,7 @@ using WarCroft.Entities.Characters;
 using WarCroft.Entities.Characters.Contracts;
 using WarCroft.Entities.Items;
 using System.Linq;
+using System.Text;
 
 namespace WarCroft.Core
 {
@@ -106,7 +107,16 @@ namespace WarCroft.Core
 
 		public string GetStats()
 		{
-			throw new NotImplementedException();
+			StringBuilder sb = new StringBuilder();
+			var ordered = characters.OrderByDescending(x => x.IsAlive).ThenByDescending(x => x.Health);
+
+            foreach (var character in ordered)
+            {
+				string lifeStatus = character.IsAlive == true ? "Alive" : "Dead";
+				sb.AppendLine($"{character.Name} - HP: {character.Health}/{character.BaseHealt}, AP: {character.Armor}/{character.BaseArmor}, Status: {lifeStatus}");
+            }
+
+			return sb.ToString().TrimEnd();
 		}
 
 		public string Attack(string[] args)
