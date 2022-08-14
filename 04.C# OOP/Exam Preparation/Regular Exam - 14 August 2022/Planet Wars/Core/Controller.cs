@@ -125,7 +125,7 @@ namespace PlanetWars.Core
 
             foreach (var planet in orderedList)
             {
-                sb.Append(planet.PlanetInfo());
+                sb.AppendLine(planet.PlanetInfo());
             }
 
             return sb.ToString().TrimEnd();

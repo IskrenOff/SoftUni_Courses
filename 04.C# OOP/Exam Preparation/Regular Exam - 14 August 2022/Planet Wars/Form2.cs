@@ -32,6 +32,7 @@ namespace PlanetWars
         {
             var objectForm1 = new Form1();
             objectForm1.PassingPlanetInfo();
+            richTextBox1.Multiline = true;
             richTextBox1.Text = objectForm1.PassingPlanetInfo();
         }
 

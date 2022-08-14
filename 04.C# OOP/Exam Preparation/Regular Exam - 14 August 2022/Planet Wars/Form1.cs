@@ -1,5 +1,7 @@
 ﻿using PlanetWars.Core;
 using PlanetWars.Core.Contracts;
+using PlanetWars.Models.Planets;
+using PlanetWars.Models.Planets.Contracts;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +18,8 @@ namespace PlanetWars
         private Label Cnt;
         private Button ShowPlanetInfo;
         private IController controller;
+        private IPlanet planet;
+
         private void InitializeComponent()
         {
             this.PlanetNameField = new System.Windows.Forms.TextBox();
@@ -111,6 +115,8 @@ namespace PlanetWars
             this.PerformLayout();
 
             controller = new Controller();
+            
+            
         }
         
         private void AddButton_Click(object sender, EventArgs e)
