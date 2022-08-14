@@ -91,6 +91,7 @@ namespace PlanetWars.Models.Planets
 
             sb.AppendLine($"Planet: {name}");
             sb.AppendLine($"--Budget: {budget} billion QUID");
+
             if (unitNames.Count != 0)
             {
                 sb.AppendLine($"--Forces: {string.Join(", ",unitNames)}");

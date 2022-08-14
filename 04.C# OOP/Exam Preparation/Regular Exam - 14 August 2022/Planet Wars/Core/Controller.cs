@@ -120,7 +120,7 @@ namespace PlanetWars.Core
                 (p => p.MilitaryPower).ThenBy(p => p.Name);
 
             StringBuilder sb = new StringBuilder();
-
+            
             sb.AppendLine("***UNIVERSE PLANET MILITARY REPORT***");
 
             foreach (var planet in orderedList)
