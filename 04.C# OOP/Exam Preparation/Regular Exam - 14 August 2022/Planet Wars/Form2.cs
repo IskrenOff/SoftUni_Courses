@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PlanetWars
 {
@@ -32,18 +33,11 @@ namespace PlanetWars
         {
             var objectForm1 = new Form1();
             objectForm1.PassingPlanetInfo();
-            richTextBox1.Multiline = true;
-            textBox1.Text += objectForm1.PassingPlanetInfo();
+            listBox1.Text = objectForm1.PassingPlanetInfo();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
