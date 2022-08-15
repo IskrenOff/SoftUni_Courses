@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Warships
 {
-    internal class Program
+    internal class Warships
     {
         private static int playerOneShipsCount = 0;
         private static int playerTwoShipsCount = 0;
