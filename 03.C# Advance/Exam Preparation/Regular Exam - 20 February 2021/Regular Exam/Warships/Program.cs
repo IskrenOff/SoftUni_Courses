@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Warships
 {
-    internal class Warships
+    internal class Program
     {
         private static int playerOneShipsCount = 0;
         private static int playerTwoShipsCount = 0;
@@ -19,7 +18,6 @@ namespace Warships
         private const char SecondPlayerShip = '>';
         private const char DestroyedSymbol = 'X';
         private const char Mine = '#';
-
         static void Main(string[] args)
         {
             size = int.Parse(Console.ReadLine());
