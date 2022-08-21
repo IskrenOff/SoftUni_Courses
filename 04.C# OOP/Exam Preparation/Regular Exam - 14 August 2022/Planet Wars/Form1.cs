@@ -28,7 +28,7 @@ namespace PlanetWars
             this.AddButton = new System.Windows.Forms.Button();
             this.BudgetField = new System.Windows.Forms.TextBox();
             this.Cnt = new System.Windows.Forms.Label();
-            this.ShowPlanetInfo = new System.Windows.Forms.Button();           
+            this.ShowPlanetInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PlanetNameField
@@ -111,12 +111,10 @@ namespace PlanetWars
             this.Controls.Add(this.Play);
             this.Controls.Add(this.PlanetNameField);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            controller = new Controller();
-            
-            
         }
         
         private void AddButton_Click(object sender, EventArgs e)
@@ -151,6 +149,11 @@ namespace PlanetWars
         public string PassingPlanetInfo()
         {         
             return controller.ForcesReport();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
