@@ -51,7 +51,7 @@ namespace Basketball
 
         public string AddPlayer(Player player)
         {
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(player.Position))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(player.Position))
             {
                 return "Invalid player's information.";
             }
