@@ -65,8 +65,8 @@ namespace Handball.Models
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{this.GetType().Name}: {this.Name}");
-            sb.Append($"--Rating: {this.Rating}");
+            sb.AppendLine($"{this.GetType().Name}: {this.Name}");
+            sb.AppendLine($"--Rating: {this.Rating}");
             return sb.ToString().TrimEnd();
         }
     }

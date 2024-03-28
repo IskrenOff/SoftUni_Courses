@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Handball.Models
 {
-    public abstract class Team : ITeam
+    public class Team : ITeam
     {
         private string name;
         private int pointsEarned;
         private List<IPlayer> players;
 
-        protected Team(string name)
+        public Team(string name)
         {
-            this.Name = name;
+            Name = name;
             this.pointsEarned = 0;
             this.players = new List<IPlayer>();
         }
@@ -24,7 +24,7 @@ namespace Handball.Models
         public string Name 
         {
             get => name;
-            set 
+            private set 
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -44,8 +44,8 @@ namespace Handball.Models
 
         public void Draw()
         {
-            this.pointsEarned++;
-            this.players.FirstOrDefault(p => p.GetType().Name == nameof(Goalkeeper)).IncreaseRating();
+            this.pointsEarned += 1;
+            this.Players.FirstOrDefault(p => p.GetType().Name == nameof(Goalkeeper)).IncreaseRating();
         }
 
         public void Lose()
@@ -73,8 +73,8 @@ namespace Handball.Models
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"Team: {this.Name} Points: {this.PointsEarned}");
-            sb.Append($"--Overall rating: {OverallRating}");
+            sb.AppendLine($"Team: {this.Name} Points: {this.PointsEarned}");
+            sb.AppendLine($"--Overall rating: {OverallRating}");
             sb.Append($"--Players: ");
 
             if (this.players.Any())
