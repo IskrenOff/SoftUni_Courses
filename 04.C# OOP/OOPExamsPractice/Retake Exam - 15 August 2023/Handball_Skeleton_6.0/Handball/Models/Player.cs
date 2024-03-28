@@ -1,4 +1,5 @@
 ﻿using Handball.Models.Contracts;
+using Handball.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,64 @@ namespace Handball.Models
 {
     public abstract class Player : IPlayer
     {
+        private string name;
+        private double rating;
+        private string team;
+
         public Player(string name, double rating)
         {
-                
+            this.Name = name;
+            this.Rating = rating;
         }
-        public string Name => throw new NotImplementedException();
 
-        public double Rating => throw new NotImplementedException();
-
-        public string Team => throw new NotImplementedException();
-
-        public void DecreaseRating()
+        public string Name
         {
-            throw new NotImplementedException();
+            get => name;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(ExceptionMessages.PlayerNameNull);
+                }
+                name = value;
+            }
         }
 
-        public void IncreaseRating()
+        public double Rating 
         {
-            throw new NotImplementedException();
+            get => rating;
+            protected set
+            {
+                rating = value;
+            }
         }
+
+        public string Team 
+        { 
+            get => team;
+            private set
+            {
+                team = value;
+            }
+        }
+
+        public abstract void DecreaseRating();
+
+
+        public abstract void IncreaseRating();
+
 
         public void JoinTeam(string name)
         {
-            throw new NotImplementedException();
+            this.Team = name;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{this.GetType().Name}: {this.Name}");
+            sb.Append($"--Rating: {this.Rating}");
+            return sb.ToString();
         }
     }
 }
