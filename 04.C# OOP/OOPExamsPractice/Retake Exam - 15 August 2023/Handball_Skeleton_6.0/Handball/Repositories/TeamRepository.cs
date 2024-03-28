@@ -10,26 +10,24 @@ namespace Handball.Repositories
 {
     public class TeamRepository : IRepository<ITeam>
     {
-        public IReadOnlyCollection<ITeam> Models => throw new NotImplementedException();
+        private List<ITeam> teams;
+
+        public TeamRepository()
+        {
+            this.teams = new List<ITeam>();
+        }
+
+        public IReadOnlyCollection<ITeam> Models => this.teams.AsReadOnly();
 
         public void AddModel(ITeam model)
         {
-            throw new NotImplementedException();
+            this.teams.Add(model);
         }
 
-        public bool ExistsModel(string name)
-        {
-            throw new NotImplementedException();
-        }
+        public bool ExistsModel(string name) => this.teams.Any(t => t.Name == name);
 
-        public ITeam GetModel(string name)
-        {
-            throw new NotImplementedException();
-        }
+        public ITeam GetModel(string name) => this.teams.FirstOrDefault(t => t.Name == name);
 
-        public bool RemoveModel(string name)
-        {
-            throw new NotImplementedException();
-        }
+        public bool RemoveModel(string name) => this.teams.Remove(this.teams.FirstOrDefault(p => p.Name == name));
     }
 }

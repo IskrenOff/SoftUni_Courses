@@ -26,7 +26,6 @@ namespace Handball.Repositories
 
         public bool ExistsModel(string name) => this.players.Any(p => p.Name == name);
   
-
         public IPlayer GetModel(string name) => this.players.FirstOrDefault(p => p.Name == name);
 
         public bool RemoveModel(string name) => this.players.Remove(this.players.FirstOrDefault(p => p.Name == name));
