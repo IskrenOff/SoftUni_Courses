@@ -67,7 +67,7 @@ namespace Handball.Models
             StringBuilder sb = new StringBuilder();
             sb.Append($"{this.GetType().Name}: {this.Name}");
             sb.Append($"--Rating: {this.Rating}");
-            return sb.ToString();
+            return sb.ToString().TrimEnd();
         }
     }
 }
