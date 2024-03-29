@@ -59,24 +59,41 @@ namespace BankLoan.Models
             }
         }
 
-        public void AddLoan(ILoan loan)
-        {
-            this.loans.Add(loan);
-        }
+        public void AddLoan(ILoan loan) => this.loans.Add(loan);
 
         public string GetStatistics()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Name: {this.Name}, Type: {GetType().Name}");
+            sb.Append("Clients: ");
+
+            if (this.clients.Count == 0)
+            {
+                sb.AppendLine("none");
+            }
+            else
+            {
+                var names = this.clients.Select(c => c.Name).ToArray();
+                foreach ( var client in this.clients ) 
+                {
+                    sb.AppendLine(string.Join(" ", names));
+                }
+            }
+            sb.AppendLine($"Loans: {this.Loans.Count}, Sum of Rates: {this.SumRates}");
+
+            return sb.ToString().TrimEnd();
         }
 
-        public void RemoveClient(IClient Client)
-        {
-            this.clients.Remove(Client);
-        }
+        public void RemoveClient(IClient Client) => this.clients.Remove(Client);
 
         public double SumRates()
         {
-            throw new NotImplementedException();
+            if (this.Loans.Count == 0)
+            {
+                return 0;
+            }
+            return double.Parse(this.Loans.Select(p => p.InterestRate).Sum().ToString());
         }
     }
 }
