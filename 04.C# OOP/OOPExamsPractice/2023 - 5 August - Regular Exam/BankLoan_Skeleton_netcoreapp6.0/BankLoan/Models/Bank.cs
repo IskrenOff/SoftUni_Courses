@@ -19,6 +19,8 @@ namespace BankLoan.Models
         {
             this.Name = name;
             this.Capacity = capacity;
+            this.loans = new List<ILoan>();
+            this.clients = new List<IClient>();
         }
 
         public string Name 
@@ -66,7 +68,7 @@ namespace BankLoan.Models
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Name: {this.Name}, Type: {GetType().Name}");
-            sb.Append("Clients: ");
+            sb.Append($"Clients: ");
 
             if (this.clients.Count == 0)
             {
@@ -80,7 +82,7 @@ namespace BankLoan.Models
                     sb.AppendLine(string.Join(" ", names));
                 }
             }
-            sb.AppendLine($"Loans: {this.Loans.Count}, Sum of Rates: {this.SumRates}");
+            sb.AppendLine($"Loans: {this.Loans.Count}, Sum of Rates: {this.SumRates()}");
 
             return sb.ToString().TrimEnd();
         }

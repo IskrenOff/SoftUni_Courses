@@ -14,7 +14,7 @@ namespace BankLoan.Repositories
 
         public LoanRepository()
         {
-            loans = new List<ILoan>();
+            this.loans = new List<ILoan>();
         }
 
         public IReadOnlyCollection<ILoan> Models => this.loans.AsReadOnly();

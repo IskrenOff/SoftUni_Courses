@@ -92,7 +92,13 @@ namespace BankLoan.Core
 
         public string FinalCalculation(string bankName)
         {
-            throw new NotImplementedException();
+            IBank bank = banks.Models.FirstOrDefault(p => p.Name == bankName);
+
+            var sumLoans = bank.Loans.Sum(p => p.Amount);
+            var sumIncome = bank.Clients.Sum(x => x.Income);
+            string allFunds = (sumLoans + sumIncome).ToString("0.00");
+
+            return string.Format(OutputMessages.BankFundsCalculated, bankName, allFunds);
         }
 
         public string ReturnLoan(string bankName, string loanTypeName)
@@ -105,13 +111,20 @@ namespace BankLoan.Core
 
             IBank bank = this.banks.FirstModel(bankName);
             bank.AddLoan(loan);
+            loans.RemoveModel(loan);
             return string.Format(OutputMessages.LoanReturnedSuccessfully, loanTypeName, bankName);
 
         }
 
         public string Statistics()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var bankStats in this.banks.Models) 
+            {
+                sb.AppendLine(bankStats.GetStatistics());
+            }
+            return sb.ToString().TrimEnd();
         }
     }
 }
