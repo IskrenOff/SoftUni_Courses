@@ -46,12 +46,20 @@ namespace BankLoan.Models
 
         public void AddClient(IClient Client)
         {
-            throw new NotImplementedException();
+            if (this.Capacity > 0) 
+            {
+                this.clients.Add(Client);
+                this.Capacity--;
+            }
+            else
+            {
+                throw new ArgumentException(ExceptionMessages.NotEnoughCapacity);
+            }
         }
 
         public void AddLoan(ILoan loan)
         {
-            throw new NotImplementedException();
+            this.loans.Add(loan);
         }
 
         public string GetStatistics()
@@ -61,7 +69,7 @@ namespace BankLoan.Models
 
         public void RemoveClient(IClient Client)
         {
-            throw new NotImplementedException();
+            this.clients.Remove(Client);
         }
 
         public double SumRates()
