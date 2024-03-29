@@ -15,7 +15,7 @@ namespace BankLoan.Models
         private int interest;
         private double income;
 
-        protected Client(string name, string id, int interest, double income)
+        public Client(string name, string id, int interest, double income)
         {
             this.Name = name;
             this.Id = id;
@@ -26,7 +26,7 @@ namespace BankLoan.Models
         public string Name 
         {
             get => name;
-            set 
+            private set 
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -71,6 +71,8 @@ namespace BankLoan.Models
             }
         }
 
-        public abstract void IncreaseInterest();
+        public virtual void IncreaseInterest() 
+        {
+        }
     }
 }

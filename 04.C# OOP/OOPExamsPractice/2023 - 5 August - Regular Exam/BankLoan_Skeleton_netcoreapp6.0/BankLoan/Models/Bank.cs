@@ -15,7 +15,7 @@ namespace BankLoan.Models
         private List<ILoan> loans;
         private List<IClient> clients;
 
-        protected Bank(string name, int capacity)
+        public Bank(string name, int capacity)
         {
             this.Name = name;
             this.Capacity = capacity;
@@ -24,7 +24,7 @@ namespace BankLoan.Models
         public string Name 
         {
             get => name;
-            set 
+            private set 
             {
                 if (string.IsNullOrWhiteSpace(value)) 
                 {
@@ -37,19 +37,21 @@ namespace BankLoan.Models
         public int Capacity 
         {
             get => capacity;
-            protected set => capacity = value;
+            private set 
+            {
+                capacity = value;
+            }
         }
 
-        public IReadOnlyCollection<ILoan> Loans => this.loans.AsReadOnly();
+        public IReadOnlyCollection<ILoan> Loans => this.loans;
 
-        public IReadOnlyCollection<IClient> Clients => this.clients.AsReadOnly();
+        public IReadOnlyCollection<IClient> Clients => this.clients;
 
         public void AddClient(IClient Client)
         {
-            if (this.Capacity > 0) 
+            if (this.Clients.Count < this.Capacity) 
             {
                 this.clients.Add(Client);
-                this.Capacity--;
             }
             else
             {

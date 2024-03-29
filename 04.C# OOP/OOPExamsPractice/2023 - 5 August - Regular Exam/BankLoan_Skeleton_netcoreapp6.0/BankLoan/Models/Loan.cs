@@ -12,7 +12,7 @@ namespace BankLoan.Models
         private int interestRate;
         private double amount;
 
-        protected Loan(int interestRate, double amount)
+        public Loan(int interestRate, double amount)
         {
             this.InterestRate = interestRate;
             this.Amount = amount;
@@ -21,7 +21,7 @@ namespace BankLoan.Models
         public int InterestRate 
         {
             get => interestRate;
-            protected set 
+            private set 
             {
                 interestRate = value;
             }
@@ -30,7 +30,7 @@ namespace BankLoan.Models
         public double Amount 
         {
             get => amount;
-            protected set 
+            private set 
             {
                 amount = value;
             }

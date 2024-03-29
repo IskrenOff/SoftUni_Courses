@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BankLoan.Models
 {
-    internal class StudentLoan : Loan
+    public class StudentLoan : Loan
     {
-        public StudentLoan(int interestRate, double amount) 
+        public StudentLoan() 
             : base(1, 10000)
         {
         }
