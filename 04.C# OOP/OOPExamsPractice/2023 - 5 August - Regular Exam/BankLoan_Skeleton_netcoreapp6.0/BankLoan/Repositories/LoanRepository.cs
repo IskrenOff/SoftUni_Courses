@@ -19,19 +19,10 @@ namespace BankLoan.Repositories
 
         public IReadOnlyCollection<ILoan> Models => this.loans.AsReadOnly();
 
-        public void AddModel(ILoan model)
-        {
-            throw new NotImplementedException();
-        }
+        public void AddModel(ILoan model) => this.loans.Add(model);
 
-        public ILoan FirstModel(string name)
-        {
-            throw new NotImplementedException();
-        }
+        public ILoan FirstModel(string name) => this.loans.FirstOrDefault(p => p.GetType().Name == name);
 
-        public bool RemoveModel(ILoan model)
-        {
-            throw new NotImplementedException();
-        }
+        public bool RemoveModel(ILoan model) => this.loans.Remove(model);
     }
 }
