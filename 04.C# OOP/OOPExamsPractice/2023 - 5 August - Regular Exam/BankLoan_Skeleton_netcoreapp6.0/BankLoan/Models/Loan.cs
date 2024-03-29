@@ -14,11 +14,26 @@ namespace BankLoan.Models
 
         protected Loan(int interestRate, double amount)
         {
-            
+            this.InterestRate = interestRate;
+            this.Amount = amount;
         }
 
-        public int InterestRate => throw new NotImplementedException();
+        public int InterestRate 
+        {
+            get => interestRate;
+            protected set 
+            {
+                interestRate = value;
+            }
+        }
 
-        public double Amount => throw new NotImplementedException();
+        public double Amount 
+        {
+            get => amount;
+            protected set 
+            {
+                amount = value;
+            }
+        }
     }
 }
