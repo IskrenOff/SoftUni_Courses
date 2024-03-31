@@ -106,7 +106,7 @@ namespace BankLoan.Core
             ILoan loan = this.loans.FirstModel(loanTypeName);
             if (loan == null)
             {
-                throw new ArgumentException(ExceptionMessages.MissingLoanFromType, loanTypeName);
+                throw new ArgumentException(string.Format(ExceptionMessages.MissingLoanFromType, loanTypeName));
             }
 
             IBank bank = this.banks.FirstModel(bankName);
