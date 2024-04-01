@@ -17,7 +17,7 @@ namespace EDriveRent.Models
         private double rating;
         private bool isBlocked;
 
-        public User(string firstName , string secondName, string drivingLicenseNumber )
+        public User(string firstName , string lastName, string drivingLicenseNumber )
         {
             this.FirstName = firstName;
             this.LastName = lastName;

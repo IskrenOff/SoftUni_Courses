@@ -1,4 +1,5 @@
 ﻿using EDriveRent.Models.Contracts;
+using EDriveRent.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,44 +10,109 @@ namespace EDriveRent.Models
 {
     public abstract class Vehicle : IVehicle
     {
-        private string band;
+        private string brand;
         private string model;
         private double maxMileage;
         private string licensePlateNumber;
+        private int batteryLevel;
+        private bool isDamaged;
 
-        protected Vehicle(string band, string model,double maxMileage, string licensePlateNumber)
+        protected Vehicle(string brand, string model,double maxMileage, string licensePlateNumber)
         {
-            //this.Band = band;
-            //this.Model = model;
-            //this.LicensePlateNumber = licensePlateNumber;
-
+            this.Brand = brand;
+            this.Model = model;
+            this.maxMileage = maxMileage;
+            this.LicensePlateNumber = licensePlateNumber;
+            this.batteryLevel = 100;
+            this.isDamaged = false;
         }
 
-        public string Brand => throw new NotImplementedException();
+        public string Brand 
+        {
+            get => brand;
+            private set 
+            {
+                if (string.IsNullOrWhiteSpace(value)) 
+                {
+                    throw new ArgumentException(ExceptionMessages.BrandNull);
+                }
+                brand = value;
+            }
+        }
 
-        public string Model => throw new NotImplementedException();
+        public string Model 
+        {
+            get => model;
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(ExceptionMessages.ModelNull);
+                }
+                model = value;
+            }
+        }
 
-        public double MaxMileage => throw new NotImplementedException();
+        public int BatteryLevel => this.batteryLevel;
+        public double MaxMileage => this.maxMileage;
+        public bool IsDamaged => this.isDamaged;
 
-        public string LicensePlateNumber => throw new NotImplementedException();
+        public string LicensePlateNumber 
+        {
+            get => licensePlateNumber;
+            private set 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(ExceptionMessages.LicenceNumberRequired);
+                }
+                licensePlateNumber = value;
+            }
+        }
 
-        public int BatteryLevel => throw new NotImplementedException();
-
-        public bool IsDamaged => throw new NotImplementedException();
 
         public void ChangeStatus()
         {
-            throw new NotImplementedException();
+            if (!IsDamaged)
+            {
+                isDamaged = true;
+            }
+            else
+            {
+                isDamaged = false;
+            }
         }
 
         public void Drive(double mileage)
         {
-            throw new NotImplementedException();
+            double percentage = Math.Round((mileage / this.maxMileage) * 100);
+            this.batteryLevel -= (int)percentage;
+
+            if (this.GetType().Name == nameof(CargoVan))
+            {
+                this.batteryLevel -= 5;
+            }
         }
 
         public void Recharge()
         {
-            throw new NotImplementedException();
+            this.batteryLevel = 100;
+        }
+
+        public override string ToString()
+        {
+            string vehicleCondition;
+
+            if (this.IsDamaged)
+            {
+                vehicleCondition = "damaged";
+            }
+            else 
+            {
+                vehicleCondition = "OK";
+            }
+
+            return $"{brand} {model} License plate: {licensePlateNumber} Battery: {batteryLevel}% Status: {vehicleCondition}";
         }
     }
 }

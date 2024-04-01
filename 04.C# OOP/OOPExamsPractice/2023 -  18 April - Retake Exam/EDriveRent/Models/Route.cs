@@ -1,4 +1,5 @@
 ﻿using EDriveRent.Models.Contracts;
+using EDriveRent.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,29 +14,64 @@ namespace EDriveRent.Models
         private string endPoint;
         private double length;
         private int routeId;
+        private bool isLocked;
 
         public Route(string startPoint, string endPoint, double length, int routeId)
         {
-            //this.StartPoint = startPoint;
-            //this.EndPoint = endPoint;
-            //this.Length = length;
-            //this.RouteId = routeId;
+            this.StartPoint = startPoint;
+            this.EndPoint = endPoint;
+            this.Length = length;
+            this.routeId = routeId;
+            this.isLocked = false;
 
         }
 
-        public string StartPoint => throw new NotImplementedException();
+        public string StartPoint 
+        {
+            get => startPoint;
+            private set 
+            {
+                if (string.IsNullOrWhiteSpace(value)) 
+                {
+                    throw new ArgumentException(ExceptionMessages.StartPointNull);
+                }
+                startPoint = value;
+            }
+        }
 
-        public string EndPoint => throw new NotImplementedException();
+        public string EndPoint 
+        {
+            get => endPoint;
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value)) 
+                {
+                    throw new ArgumentException(ExceptionMessages.EndPointNull);
+                }
+                endPoint = value;
+            }
+        }
 
-        public double Length => throw new NotImplementedException();
+        public double Length 
+        {
+            get => length;
+            private set 
+            {
+                if (value < 1)
+                {
+                    throw new ArgumentException(ExceptionMessages.RouteLengthLessThanOne); 
+                }
+                length = value;
+            }
+        }
 
-        public int RouteId => throw new NotImplementedException();
+        public int RouteId => this.routeId;
 
-        public bool IsLocked => throw new NotImplementedException();
+        public bool IsLocked => this.isLocked;
 
         public void LockRoute()
         {
-            throw new NotImplementedException();
+            isLocked = true;
         }
     }
 }
