@@ -19,22 +19,14 @@ namespace EDriveRent.Repositories
 
         public void AddModel(IUser model)
         {
-            throw new NotImplementedException();
+            users.Add(model);
         }
 
-        public IUser FindById(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public IUser FindById(string identifier) => users.FirstOrDefault(p => p.DrivingLicenseNumber == identifier);  
 
-        public IReadOnlyCollection<IUser> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IReadOnlyCollection<IUser> GetAll() => users;
 
-        public bool RemoveById(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public bool RemoveById(string identifier) => this.users.Remove(this.FindById(identifier));
+
     }
 }

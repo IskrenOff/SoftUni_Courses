@@ -17,24 +17,12 @@ namespace EDriveRent.Repositories
             vehicles = new List<IVehicle>();
         }
 
-        public void AddModel(IVehicle model)
-        {
-            throw new NotImplementedException();
-        }
+        public void AddModel(IVehicle model) => vehicles.Add(model);
 
-        public IVehicle FindById(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public IVehicle FindById(string identifier) => vehicles.FirstOrDefault(p => p.LicensePlateNumber == identifier);
 
-        public IReadOnlyCollection<IVehicle> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IReadOnlyCollection<IVehicle> GetAll() => vehicles;
 
-        public bool RemoveById(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public bool RemoveById(string identifier) => vehicles.Remove(FindById(identifier));
     }
 }

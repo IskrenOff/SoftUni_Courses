@@ -18,24 +18,12 @@ namespace EDriveRent.Repositories
            routes = new List<IRoute>();
         }
 
-        public void AddModel(IRoute model)
-        {
-            throw new NotImplementedException();
-        }
+        public void AddModel(IRoute model) => routes.Add(model);
 
-        public IRoute FindById(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public IRoute FindById(string identifier) => routes.FirstOrDefault(p => p.RouteId == int.Parse(identifier));
 
-        public IReadOnlyCollection<IRoute> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IReadOnlyCollection<IRoute> GetAll() => routes;
 
-        public bool RemoveById(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public bool RemoveById(string identifier) => routes.Remove(FindById(identifier));
     }
 }
