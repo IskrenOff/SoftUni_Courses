@@ -11,9 +11,10 @@ namespace EDriveRent.Models
     {
         private string band;
         private string model;
+        private double maxMileage;
         private string licensePlateNumber;
 
-        protected Vehicle(string band, string model, string licensePlateNumber)
+        protected Vehicle(string band, string model,double maxMileage, string licensePlateNumber)
         {
             //this.Band = band;
             //this.Model = model;
