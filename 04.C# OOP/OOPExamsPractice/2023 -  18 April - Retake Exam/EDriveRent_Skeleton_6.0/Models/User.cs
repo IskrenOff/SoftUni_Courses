@@ -9,6 +9,19 @@ namespace EDriveRent.Models
 {
     public class User : IUser
     {
+
+        private string firstName;
+        private string lastName;
+        private string drivingLicenseNumber;
+
+        public User(string firstName, string lastName, string drivingLicenseNumber)
+        {
+            //this.FirstName = firstName;
+            //this.LastName = lastName;
+            //this.DrivingLicenseNumber = drivingLicenseNumber;
+
+        }
+
         public string FirstName => throw new NotImplementedException();
 
         public string LastName => throw new NotImplementedException();

@@ -9,6 +9,19 @@ namespace EDriveRent.Models
 {
     public abstract class Vehicle : IVehicle
     {
+
+        private string brand;
+        private string model;
+        private string licensePlateNumber;
+
+        protected Vehicle(string brand, string model, string licensePlateNumber)
+        {
+            //this.Brand = brand;
+            //this.Model = model;
+            //this.LicensePlateNumber = licensePlateNumber;
+
+        }
+
         public string Brand => throw new NotImplementedException();
 
         public string Model => throw new NotImplementedException();
