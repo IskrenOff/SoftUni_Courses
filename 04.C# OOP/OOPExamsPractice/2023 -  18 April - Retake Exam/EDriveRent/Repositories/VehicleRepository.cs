@@ -10,6 +10,13 @@ namespace EDriveRent.Repositories
 {
     public class VehicleRepository : IRepository<IVehicle>
     {
+        private List<IVehicle> vehicles;
+
+        public VehicleRepository()
+        {
+            vehicles = new List<IVehicle>();
+        }
+
         public void AddModel(IVehicle model)
         {
             throw new NotImplementedException();

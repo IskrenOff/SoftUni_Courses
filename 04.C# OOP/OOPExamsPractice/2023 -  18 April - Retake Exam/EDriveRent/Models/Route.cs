@@ -1,7 +1,6 @@
 ﻿using EDriveRent.Models.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +16,11 @@ namespace EDriveRent.Models
 
         public Route(string startPoint, string endPoint, double length, int routeId)
         {
-            
+            //this.StartPoint = startPoint;
+            //this.EndPoint = endPoint;
+            //this.Length = length;
+            //this.RouteId = routeId;
+
         }
 
         public string StartPoint => throw new NotImplementedException();

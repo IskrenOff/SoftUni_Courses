@@ -9,14 +9,13 @@ namespace EDriveRent.Models
 {
     public abstract class Vehicle : IVehicle
     {
-
-        private string brand;
+        private string band;
         private string model;
         private string licensePlateNumber;
 
-        protected Vehicle(string brand, string model, string licensePlateNumber)
+        protected Vehicle(string band, string model, string licensePlateNumber)
         {
-            //this.Brand = brand;
+            //this.Band = band;
             //this.Model = model;
             //this.LicensePlateNumber = licensePlateNumber;
 

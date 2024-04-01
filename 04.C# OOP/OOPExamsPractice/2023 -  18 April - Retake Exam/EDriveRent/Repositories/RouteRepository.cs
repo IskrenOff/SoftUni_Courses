@@ -8,19 +8,27 @@ using System.Threading.Tasks;
 
 namespace EDriveRent.Repositories
 {
-    public class UserRepository : IRepository<IUser>
+    public class RouteRepository : IRepository<IRoute>
     {
-        public void AddModel(IUser model)
+
+        private List<IRoute> routes;
+
+        public RouteRepository()
+        {
+           routes = new List<IRoute>();
+        }
+
+        public void AddModel(IRoute model)
         {
             throw new NotImplementedException();
         }
 
-        public IUser FindById(string identifier)
+        public IRoute FindById(string identifier)
         {
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<IUser> GetAll()
+        public IReadOnlyCollection<IRoute> GetAll()
         {
             throw new NotImplementedException();
         }
