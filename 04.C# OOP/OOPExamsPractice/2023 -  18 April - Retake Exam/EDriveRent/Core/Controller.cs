@@ -1,4 +1,9 @@
 ﻿using EDriveRent.Core.Contracts;
+using EDriveRent.Models;
+using EDriveRent.Models.Contracts;
+using EDriveRent.Repositories;
+using EDriveRent.Repositories.Contracts;
+using EDriveRent.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +14,17 @@ namespace EDriveRent.Core
 {
     public class Controller : IController
     {
+        private IRepository<IUser> users;
+        private IRepository<IVehicle> vehicles;
+        private IRepository<IRoute> routes ;
+
+        public Controller()
+        {
+            users = new UserRepository();
+            vehicles = new VehicleRepository();
+            routes = new RouteRepository();
+        }
+
         public string AllowRoute(string startPoint, string endPoint, double length)
         {
             throw new NotImplementedException();
@@ -21,7 +37,15 @@ namespace EDriveRent.Core
 
         public string RegisterUser(string firstName, string lastName, string drivingLicenseNumber)
         {
-            throw new NotImplementedException();
+            IUser user = users.FindById(drivingLicenseNumber);
+            if (user != null)
+            {
+                return string.Format(OutputMessages.UserWithSameLicenseAlreadyAdded, drivingLicenseNumber);
+            }
+
+            user = new User(firstName, lastName, drivingLicenseNumber);
+            users.AddModel(user);
+            return string.Format(OutputMessages.UserSuccessfullyAdded, firstName, lastName, drivingLicenseNumber);
         }
 
         public string RepairVehicles(int count)
@@ -31,7 +55,31 @@ namespace EDriveRent.Core
 
         public string UploadVehicle(string vehicleType, string brand, string model, string licensePlateNumber)
         {
-            throw new NotImplementedException();
+            IVehicle vehicle = vehicles.FindById(licensePlateNumber);
+
+            if (vehicleType != nameof(PassengerCar) && vehicleType != nameof(CargoVan))
+            {
+                return string.Format(OutputMessages.VehicleTypeNotAccessible, vehicleType);
+            }
+            if (vehicle != null)
+            {
+                return string.Format(OutputMessages.LicensePlateExists, licensePlateNumber);
+            }
+            else
+            {
+                if (vehicleType == nameof(CargoVan))
+                {
+                    vehicle = new CargoVan(brand,model,licensePlateNumber); 
+                }
+                else if (vehicleType == nameof(PassengerCar))
+                {
+                    vehicle = new PassengerCar(brand, model, licensePlateNumber);
+                }
+            }
+
+            vehicles.AddModel(vehicle);
+            return string.Format(OutputMessages.VehicleAddedSuccessfully, brand, model, licensePlateNumber);
+            
         }
 
         public string UsersReport()
