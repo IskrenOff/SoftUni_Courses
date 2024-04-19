@@ -10,6 +10,8 @@ namespace RobotService.Repositories
 {
     public class SupplementRepository : IRepository<ISupplement>
     {
+        private List<ISupplement> supplements;
+
         public void AddNew(ISupplement model)
         {
             throw new NotImplementedException();

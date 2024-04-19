@@ -8,10 +8,10 @@ namespace RobotService.Models
 {
     public class SpecializedArm : Supplement
     {
-        private const int interfaceStandart = 10045;
+        private const int interfaceStandard = 10045;
         private const int batteryUsage = 10000;
 
-        public SpecializedArm() : base(interfaceStandart, batteryUsage)
+        public SpecializedArm() : base(interfaceStandard, batteryUsage)
         {
         }
     }

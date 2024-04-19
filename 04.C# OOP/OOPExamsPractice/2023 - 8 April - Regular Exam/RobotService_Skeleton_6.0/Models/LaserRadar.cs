@@ -8,10 +8,10 @@ namespace RobotService.Models
 {
     public class LaserRadar : Supplement
     {
-        private const int interfaceStandart = 20082;
+        private const int interfaceStandard = 20082;
         private const int batteryUsage = 5000;
 
-        public LaserRadar() : base(interfaceStandart, batteryUsage)
+        public LaserRadar() : base(interfaceStandard, batteryUsage)
         {
         }
     }

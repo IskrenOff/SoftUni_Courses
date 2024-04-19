@@ -1,4 +1,5 @@
 ﻿using RobotService.Models.Contracts;
+using RobotService.Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,16 @@ namespace RobotService.Models
 {
     public abstract class Robot : IRobot
     {
+        private string model;
+        private int batteryCapacity;
+        private int batteryLevel;
+        private int convertionCapacityIndex;
+        private IRepository<IRobot> interfaceStandards;
 
+        protected Robot()
+        {
+                
+        }
 
         public string Model => throw new NotImplementedException();
 

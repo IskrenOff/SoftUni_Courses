@@ -10,6 +10,8 @@ namespace RobotService.Repositories
 {
     public class RobotRepository : IRepository<IRobot>
     {
+        private List<IRobot> robots;
+
         public void AddNew(IRobot model)
         {
             throw new NotImplementedException();
