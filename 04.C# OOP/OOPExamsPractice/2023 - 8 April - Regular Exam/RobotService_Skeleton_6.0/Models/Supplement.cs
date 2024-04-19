@@ -12,7 +12,7 @@ namespace RobotService.Models
         private int interfaceStandard;
         private int batteryUsage;
 
-        protected Supplement(int interfaceStandard, int batteryUsage)
+        public Supplement(int interfaceStandard, int batteryUsage)
         {
             this.InterfaceStandard = interfaceStandard;
             this.BatteryUsage = batteryUsage;
@@ -22,13 +22,13 @@ namespace RobotService.Models
         public int InterfaceStandard 
         {
             get => interfaceStandard;
-            set => interfaceStandard = value;
+            private set => interfaceStandard = value;
         }
 
         public int BatteryUsage 
         {
             get => batteryUsage;
-            set => batteryUsage = value;
+            private set => batteryUsage = value;
         }
     }
 }

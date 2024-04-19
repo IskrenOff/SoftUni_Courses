@@ -14,12 +14,9 @@ namespace RobotService.Models
         private int batteryCapacity;
         private int batteryLevel;
         private int convertionCapacityIndex;
-        private IRepository<IRobot> interfaceStandards;
+        private List<int> interfaceStandards;
 
-        protected Robot()
-        {
-                
-        }
+
 
         public string Model => throw new NotImplementedException();
 
