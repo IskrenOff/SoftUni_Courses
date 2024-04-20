@@ -4,15 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UniversityCompetition.Models.Contracts;
+using UniversityCompetition.Utilities.Messages;
 
 namespace UniversityCompetition.Models
 {
     public abstract class Subject : ISubject
     {
-        public int Id => throw new NotImplementedException();
+        private int id;
+        private string name;
+        private double rate;
 
-        public string Name => throw new NotImplementedException();
+        public Subject(int subjectId, string subjectName, double subjectRate)
+        {
+            Id = subjectId;
+            Name = subjectName;
+            Rate = subjectRate;
+        }
 
-        public double Rate => throw new NotImplementedException();
+        public int Id 
+        {
+            get => id;
+            private set => id = value;
+        }
+
+        public string Name 
+        {
+            get => name;
+            private set 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(ExceptionMessages.NameNullOrWhitespace);
+                }
+                name = value;
+            }
+        }
+
+        public double Rate 
+        {
+            get => rate;
+            private set => rate = value;
+        }
     }
 }
