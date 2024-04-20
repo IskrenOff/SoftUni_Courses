@@ -10,26 +10,25 @@ namespace RobotService.Repositories
 {
     public class RobotRepository : IRepository<IRobot>
     {
-        private List<IRobot> robots;
+        private readonly List<IRobot> robots;
 
-        public void AddNew(IRobot model)
+        public RobotRepository()
         {
-            throw new NotImplementedException();
+            robots = new List<IRobot>();
         }
+
+        public void AddNew(IRobot model) => robots.Add(model);
 
         public IRobot FindByStandard(int interfaceStandard)
         {
-            throw new NotImplementedException();
+            return robots.FirstOrDefault(x => x.InterfaceStandards.Any(p => p == interfaceStandard));
         }
 
-        public IReadOnlyCollection<IRobot> Models()
-        {
-            throw new NotImplementedException();
-        }
+        public IReadOnlyCollection<IRobot> Models() => robots.AsReadOnly();
 
         public bool RemoveByName(string typeName)
         {
-            throw new NotImplementedException();
+            return robots.Remove(robots.FirstOrDefault(x => x.Model == typeName));
         }
     }
 }

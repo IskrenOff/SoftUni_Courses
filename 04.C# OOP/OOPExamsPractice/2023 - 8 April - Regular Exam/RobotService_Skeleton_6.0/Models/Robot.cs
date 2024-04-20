@@ -57,7 +57,7 @@ namespace RobotService.Models
 
         public int ConvertionCapacityIndex => this.convertionCapacityIndex;
 
-        public IReadOnlyCollection<int> InterfaceStandards => this.InterfaceStandards;
+        public IReadOnlyCollection<int> InterfaceStandards => this.interfaceStandards;
 
         public void Eating(int minutes)
         {

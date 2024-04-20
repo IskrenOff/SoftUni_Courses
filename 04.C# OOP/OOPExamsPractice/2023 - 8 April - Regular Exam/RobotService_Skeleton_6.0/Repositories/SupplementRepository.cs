@@ -10,26 +10,28 @@ namespace RobotService.Repositories
 {
     public class SupplementRepository : IRepository<ISupplement>
     {
-        private List<ISupplement> supplements;
+        private readonly List<ISupplement> supplements;
+
+        public SupplementRepository()
+        {
+            supplements = new List<ISupplement>();
+        }
 
         public void AddNew(ISupplement model)
         {
-            throw new NotImplementedException();
+            supplements.Add(model);
         }
 
         public ISupplement FindByStandard(int interfaceStandard)
         {
-            throw new NotImplementedException();
+            return supplements.FirstOrDefault(x => x.InterfaceStandard == interfaceStandard);
         }
 
-        public IReadOnlyCollection<ISupplement> Models()
-        {
-            throw new NotImplementedException();
-        }
+        public IReadOnlyCollection<ISupplement> Models() => supplements.AsReadOnly();
 
         public bool RemoveByName(string typeName)
         {
-            throw new NotImplementedException();
+            return supplements.Remove(supplements.FirstOrDefault(x => x.GetType().Name == typeName));
         }
     }
 }
