@@ -17,7 +17,14 @@ namespace RobotService.Models
         private int convertionCapacityIndex;
         private List<int> interfaceStandards;
 
-
+        public Robot(string model, int batteryCapacity, int convertionCapacityIndex)
+        {
+            Model = model;
+            BatteryCapacity = batteryCapacity;
+            this.batteryLevel = batteryCapacity;
+            this.convertionCapacityIndex = convertionCapacityIndex;
+            this.interfaceStandards = new List<int>();
+        }
 
         public string Model
         {
