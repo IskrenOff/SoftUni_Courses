@@ -35,3 +35,7 @@ VALUES
 
 --05.Truncate Table Minions
 TRUNCATE TABLE Minions
+
+--06.Drop All Tables
+DROP TABLE Minions
+DROP TABLE Towns
