@@ -180,117 +180,98 @@ VALUES
 --14.Car rental Db
 CREATE DATABASE [CarRental]
 
-CREATE TABLE [Categories]
-(
-  [Id] INT IDENTITY(1,1) PRIMARY KEY,
-  [CategoryName] VARCHAR(50) NOT NULL,
-  [DailyRate] DECIMAL(10,2) NOT NULL,
-  [WeeklyRate] DECIMAL(10,2) NOT NULL,
-  [MonthlyRate] DECIMAL(10,2) NOT NULL,
-  [WeekendRate] DECIMAL(10,2) NOT NULL,
+CREATE TABLE Categories(
+    Id INT PRIMARY KEY IDENTITY(1,1),
+	CategoryName NVARCHAR(50) NOT NULL,
+	DailyRate INT,
+	WeeklyRate INT,
+	MonthlyRate INT,
+	WeekendRate INT
 )
 
-CREATE TABLE [Cars]
-(
-  [Id] INT IDENTITY(1,1) PRIMARY KEY,
-  [PlateNumber] VARCHAR(20) NOT NULL,
-  [Manufacturer] VARCHAR(50) NOT NULL,
-  [Model] VARCHAR(50) NOT NULL,
-  [CarYear] INT NOT NULL,
-  [CategoryId] INT NOT NUll,
-  [Doors] INT NOT NULL,
-  [Picture] VARBINARY(MAX),
-  [Condition] VARCHAR(100),
-  [Available] BIT,
-  CONSTRAINT FK_Cars_Category FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+INSERT INTO Categories (CategoryName) VALUES
+    ('Truck'),
+	('Car'),
+	('Bus')
+
+--SELECT * FROM Categories
+
+CREATE TABLE Cars(
+    Id INT PRIMARY KEY IDENTITY(1,1),
+	PlateNumber INT NOT NULL,
+	Manufacturer NVARCHAR(50) NOT NULL,
+	Model NVARCHAR(50),
+	CarYear INT,
+	CategoryId INT FOREIGN KEY REFERENCES Categories(Id) NOT NULL,
+	Doors INT,
+	Picture VARBINARY(MAX),
+	Condition NVARCHAR(100),
+	Available BIT
 )
 
-CREATE TABLE [Employees]
-(
-  [Id] INT IDENTITY(1,1) PRIMARY KEY,
-  [FirstName] VARCHAR(20) NOT NULL,
-  [LastName] VARCHAR(20) NOT NULL,
-  [Title] VARCHAR(100),
-  [Notes] TEXT
+INSERT INTO Cars(PlateNumber, CategoryId, Manufacturer) VALUES
+    (55, 1, 'BMW'),
+	(51, 2, 'Audi'),
+	(50, 3, 'Merz')
+
+--SELECT * FROM Cars
+
+CREATE TABLE Employees(
+    Id INT PRIMARY KEY IDENTITY (1,1),
+	FirstName NVARCHAR(50) NOT NULL,
+	LastName NVARCHAR(50) NOT NULL,
+	Title NVARCHAR(MAX),
+	Notes NVARCHAR(MAX)
 )
 
-CREATE TABLE [Customers]
-(
-  [Id] INT IDENTITY(1,1) PRIMARY KEY,
-  [DriverLicenseNumber] INT NOT NULL,
-  [FullName] VARCHAR(50) NOT NULL,
-  [Address] VARCHAR(100) NOT NULL,
-  [City] VARCHAR(30) NOT NULL,
-  [ZIPCode] INT NOT NULL,
-  [Notes] TEXT
+INSERT INTO Employees(FirstName, LastName) VALUES
+    ('Ivan', 'Ivanov'),
+    ('Gosho', 'Goshov'),
+	('Marto', 'Martev')
+
+--SELECT * FROM Employees
+
+CREATE TABLE Customers(
+    Id INT PRIMARY KEY IDENTITY(1,1),
+	DriverLicenceNumber INT NOT NULL,
+	FullName NVARCHAR(200) NOT NULL,
+	[Address] NVARCHAR(100),
+	City NVARCHAR(50),
+	ZIPCode INT,
+	Notes NVARCHAR(MAX)
 )
 
-CREATE TABLE [RentalOrders]
-(
-  [Id] INT IDENTITY(1,1) PRIMARY KEY,
-  [EmployeeId] INT NOT NULL,
-  [CustomerId] INT NOT NULL,
-  [CarId] INT NOT NULL,
-  [TankLevel] DECIMAL(10,2),
-  [KilometerRangeStart] DECIMAL(10,2),
-  [KilometerRangeEnd] DECIMAL(10,2),
-  [TotalKilometerRange] DECIMAL(10,2),
-  [StartDate] DATETIME2 NOT NULL,
-  [EndDate] DATETIME2 NOT NULL,
-  [TotalDays] INT NOT NULL,
-  [RateApplied] DECIMAL(10,2) NOT NULL,
-  [TaxRate] DECIMAL(5,2),
-  [OrderStatus] VARCHAR(50),
-  [Notes] TEXT,
-  CONSTRAINT FK_RentalOredrs_Employee FOREIGN KEY (EmployeeId) REFERENCES Employees(Id),
-  CONSTRAINT FK_RentalOredrs_Customer FOREIGN KEY (CustomerId) REFERENCES Customers(Id),
-  CONSTRAINT FK_RentalOredrs_Car FOREIGN KEY (CarId) REFERENCES Cars(Id)
+INSERT INTO Customers (DriverLicenceNumber, FullName) VALUES
+    (44, 'Pesho ivanov'),
+	(33, 'Ivan ivanov'),
+	(22, 'Georgi ivanov')
+
+--SELECT * FROM Customers
+
+CREATE TABLE RentalOrders(
+    Id INT PRIMARY KEY IDENTITY(1,1),
+	EmployeeId INT FOREIGN KEY REFERENCES Employees(Id) NOT NULL,
+	CustomerId INT FOREIGN KEY REFERENCES Customers(Id) NOT NULL,
+	CarId INT FOREIGN KEY REFERENCES Cars(Id) NOT NULL,
+	TankLevel INT,
+	KilometrageStart INT NOT NULL,
+	KilometrageEnd INT,
+	TotalKilometrage INT,
+	StartDate DATETIME,
+	EndDate DATETIME,
+	TotalDays INT,
+	RateApplied INT,
+	TaxRate INT,
+	OrderStatus NVARCHAR(50),
+	Notes NVARCHAR(MAX)
 )
 
+INSERT INTO RentalOrders (EmployeeId, CustomerId, CarId, KilometrageStart) VALUES
+    (1, 2, 3, 200),
+	(2, 3, 2, 2000),
+	(3, 1, 1, 20000)
 
 
-INSERT INTO Categories (CategoryName, DailyRate, WeeklyRate, MonthlyRate, WeekendRate)
-VALUES
-('Economy', 25.00, 150.00, 500.00, 40.00),
-('Compact', 30.00, 180.00, 600.00, 45.00),
-('SUV', 40.00, 240.00, 800.00, 55.00)
-
-INSERT INTO Cars (PlateNumber, Manufacturer, Model, CarYear, CategoryId, Doors, Available) 
-VALUES
-('ABC123', 'Toyota', 'Corolla', 2019, 1, 4, 1),
-('XYZ789', 'Honda', 'Civic', 2020, 2, 4, 1),
-('DEF456', 'Ford', 'Escape', 2018, 3, 4, 1)
-
-INSERT INTO Employees (FirstName, LastName, Title) 
-VALUES
-('John', 'Doe', 'Manager'),
-('Jane', 'Smith', 'Sales Associate'),
-('Michael', 'Johnson', 'Customer Service Representative')
-
-INSERT INTO Customers (DriverLicenseNumber, FullName, Address, City, ZIPCode) 
-VALUES
-('DL123456', 'Alice Johnson', '123 Main St', 'New York', '10001'),
-('DL654321', 'Bob Smith', '456 Elm St', 'Los Angeles', '90001'),
-('DL987654', 'Charlie Brown', '789 Oak St', 'Chicago', '60601')
 
 
-INSERT INTO RentalOrders (EmployeeId, CustomerId, CarId, TankLevel, KilometerRangeStart, KilometerRangeEnd, TotalKilometerRange, StartDate, EndDate, TotalDays, RateApplied, TaxRate, OrderStatus, Notes)
-VALUES
-(4, 2, 3, 50.00, 100.00, 200.00, 100.00, '2024-05-01 08:00:00', '2024-05-03 18:00:00', 3, 75.00, 0.2, 'Completed', 'Notes for order 1'),
-(5, 3, 4, 60.00, 150.00, 250.00, 100.00, '2024-05-02 09:00:00', '2024-05-04 16:00:00', 2, 90.00, 0.2, 'Completed', 'Notes for order 2'),
-(6, 4, 5, 70.00, 200.00, 300.00, 100.00, '2024-05-03 10:00:00', '2024-05-06 14:00:00', 3, 120.00, 0.2, 'In Progress', 'Notes for order 3');
 
-
-ALTER TABLE RentalOrders
-ALTER COLUMN [EndDate] DATETIME2 NOT NULL
-
-SELECT * FROM RentalOrders
-TRUNCATE TABLE RentalOrders
-
-
-DELETE FROM RentalOrders
-WHERE Id IN (
-    SELECT TOP 3 Id
-    FROM RentalOrders
-    ORDER BY Id DESC
-)
