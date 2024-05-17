@@ -235,10 +235,10 @@ CREATE TABLE [RentalOrders]
   [KilometerRangeStart] DECIMAL(10,2),
   [KilometerRangeEnd] DECIMAL(10,2),
   [TotalKilometerRange] DECIMAL(10,2),
-  [StartDate] DATETIME2,
-  [EndDate] DATETIME2,
+  [StartDate] DATETIME2 NOT NULL,
+  [EndDate] DATETIME2 NOT NULL,
   [TotalDays] INT NOT NULL,
-  [RateApplied] DECIMAL(10,2),
+  [RateApplied] DECIMAL(10,2) NOT NULL,
   [TaxRate] DECIMAL(5,2),
   [OrderStatus] VARCHAR(50),
   [Notes] TEXT,
@@ -246,6 +246,8 @@ CREATE TABLE [RentalOrders]
   CONSTRAINT FK_RentalOredrs_Customer FOREIGN KEY (CustomerId) REFERENCES Customers(Id),
   CONSTRAINT FK_RentalOredrs_Car FOREIGN KEY (CarId) REFERENCES Cars(Id)
 )
+
+
 
 INSERT INTO Categories (CategoryName, DailyRate, WeeklyRate, MonthlyRate, WeekendRate)
 VALUES
@@ -271,11 +273,24 @@ VALUES
 ('DL654321', 'Bob Smith', '456 Elm St', 'Los Angeles', '90001'),
 ('DL987654', 'Charlie Brown', '789 Oak St', 'Chicago', '60601')
 
-INSERT INTO RentalOrders (EmployeeId, CustomerId, CarId, StartDate, EndDate, TotalDays, RateApplied, OrderStatus)
+
+INSERT INTO RentalOrders (EmployeeId, CustomerId, CarId, TankLevel, KilometerRangeStart, KilometerRangeEnd, TotalKilometerRange, StartDate, EndDate, TotalDays, RateApplied, TaxRate, OrderStatus, Notes)
 VALUES
-(1, 1, 1, '2024-05-01', '2024-05-03', 3, 75.00, 'Completed'),
-(2, 2, 2, '2024-05-02', '2024-05-04', 2, 90.00, 'Completed'),
-(3, 3, 3, '2024-05-03', '2024-05-06', 3, 120.00, 'In Progress')
+(4, 2, 3, 50.00, 100.00, 200.00, 100.00, '2024-05-01 08:00:00', '2024-05-03 18:00:00', 3, 75.00, 0.2, 'Completed', 'Notes for order 1'),
+(5, 3, 4, 60.00, 150.00, 250.00, 100.00, '2024-05-02 09:00:00', '2024-05-04 16:00:00', 2, 90.00, 0.2, 'Completed', 'Notes for order 2'),
+(6, 4, 5, 70.00, 200.00, 300.00, 100.00, '2024-05-03 10:00:00', '2024-05-06 14:00:00', 3, 120.00, 0.2, 'In Progress', 'Notes for order 3');
 
 
+ALTER TABLE RentalOrders
+ALTER COLUMN [EndDate] DATETIME2 NOT NULL
 
+SELECT * FROM RentalOrders
+TRUNCATE TABLE RentalOrders
+
+
+DELETE FROM RentalOrders
+WHERE Id IN (
+    SELECT TOP 3 Id
+    FROM RentalOrders
+    ORDER BY Id DESC
+)
