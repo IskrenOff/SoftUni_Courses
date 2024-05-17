@@ -176,3 +176,106 @@ VALUES
 ('Movie3',3,2003,143,3,3,'PG-3','Long notes'),
 ('Movie4',4,2004,144,4,4,'PG-4','Long notes'),
 ('Movie5',5,2005,145,5,5,'PG-5','Long notes')
+
+--14.Car rental Db
+CREATE DATABASE [CarRental]
+
+CREATE TABLE [Categories]
+(
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [CategoryName] VARCHAR(50) NOT NULL,
+  [DailyRate] DECIMAL(10,2) NOT NULL,
+  [WeeklyRate] DECIMAL(10,2) NOT NULL,
+  [MonthlyRate] DECIMAL(10,2) NOT NULL,
+  [WeekendRate] DECIMAL(10,2) NOT NULL,
+)
+
+CREATE TABLE [Cars]
+(
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [PlateNumber] VARCHAR(20) NOT NULL,
+  [Manufacturer] VARCHAR(50) NOT NULL,
+  [Model] VARCHAR(50) NOT NULL,
+  [CarYear] INT NOT NULL,
+  [CategoryId] INT NOT NUll,
+  [Doors] INT NOT NULL,
+  [Picture] VARBINARY(MAX),
+  [Condition] VARCHAR(100),
+  [Available] BIT,
+  CONSTRAINT FK_Cars_Category FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+)
+
+CREATE TABLE [Employees]
+(
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [FirstName] VARCHAR(20) NOT NULL,
+  [LastName] VARCHAR(20) NOT NULL,
+  [Title] VARCHAR(100),
+  [Notes] TEXT
+)
+
+CREATE TABLE [Customers]
+(
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [DriverLicenseNumber] INT NOT NULL,
+  [FullName] VARCHAR(50) NOT NULL,
+  [Address] VARCHAR(100) NOT NULL,
+  [City] VARCHAR(30) NOT NULL,
+  [ZIPCode] INT NOT NULL,
+  [Notes] TEXT
+)
+
+CREATE TABLE [RentalOrders]
+(
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [EmployeeId] INT NOT NULL,
+  [CustomerId] INT NOT NULL,
+  [CarId] INT NOT NULL,
+  [TankLevel] DECIMAL(10,2),
+  [KilometerRangeStart] DECIMAL(10,2),
+  [KilometerRangeEnd] DECIMAL(10,2),
+  [TotalKilometerRange] DECIMAL(10,2),
+  [StartDate] DATETIME2,
+  [EndDate] DATETIME2,
+  [TotalDays] INT NOT NULL,
+  [RateApplied] DECIMAL(10,2),
+  [TaxRate] DECIMAL(5,2),
+  [OrderStatus] VARCHAR(50),
+  [Notes] TEXT,
+  CONSTRAINT FK_RentalOredrs_Employee FOREIGN KEY (EmployeeId) REFERENCES Employees(Id),
+  CONSTRAINT FK_RentalOredrs_Customer FOREIGN KEY (CustomerId) REFERENCES Customers(Id),
+  CONSTRAINT FK_RentalOredrs_Car FOREIGN KEY (CarId) REFERENCES Cars(Id)
+)
+
+INSERT INTO Categories (CategoryName, DailyRate, WeeklyRate, MonthlyRate, WeekendRate)
+VALUES
+('Economy', 25.00, 150.00, 500.00, 40.00),
+('Compact', 30.00, 180.00, 600.00, 45.00),
+('SUV', 40.00, 240.00, 800.00, 55.00)
+
+INSERT INTO Cars (PlateNumber, Manufacturer, Model, CarYear, CategoryId, Doors, Available) 
+VALUES
+('ABC123', 'Toyota', 'Corolla', 2019, 1, 4, 1),
+('XYZ789', 'Honda', 'Civic', 2020, 2, 4, 1),
+('DEF456', 'Ford', 'Escape', 2018, 3, 4, 1)
+
+INSERT INTO Employees (FirstName, LastName, Title) 
+VALUES
+('John', 'Doe', 'Manager'),
+('Jane', 'Smith', 'Sales Associate'),
+('Michael', 'Johnson', 'Customer Service Representative')
+
+INSERT INTO Customers (DriverLicenseNumber, FullName, Address, City, ZIPCode) 
+VALUES
+('DL123456', 'Alice Johnson', '123 Main St', 'New York', '10001'),
+('DL654321', 'Bob Smith', '456 Elm St', 'Los Angeles', '90001'),
+('DL987654', 'Charlie Brown', '789 Oak St', 'Chicago', '60601')
+
+INSERT INTO RentalOrders (EmployeeId, CustomerId, CarId, StartDate, EndDate, TotalDays, RateApplied, OrderStatus)
+VALUES
+(1, 1, 1, '2024-05-01', '2024-05-03', 3, 75.00, 'Completed'),
+(2, 2, 2, '2024-05-02', '2024-05-04', 2, 90.00, 'Completed'),
+(3, 3, 3, '2024-05-03', '2024-05-06', 3, 120.00, 'In Progress')
+
+
+
