@@ -79,3 +79,5 @@ VALUES
 ('Bubka','gergher'),
 ('Slona','h45h4h'),
 ('Bastun','089fug08f')
+
+--09.Change Primery Key
