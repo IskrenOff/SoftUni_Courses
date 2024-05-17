@@ -81,3 +81,98 @@ VALUES
 ('Bastun','089fug08f')
 
 --09.Change Primery Key
+ALTER TABLE Users 
+DROP CONSTRAINT PK__Users__3214EC0784A1B265
+
+ALTER TABLE Users
+ADD CONSTRAINT PK_Users PRIMARY KEY (Id,Username)
+
+--10.Add check constarint
+ALTER TABLE Users
+ADD CONSTRAINT CHK_Password_lenght CHECK (LEN(Password) >= 5)
+
+--11.Set defold value of field
+ALTER TABLE Users
+ADD CONSTRAINT DF_LastLoginTime DEFAULT GETDATE() FOR LastLoginTime
+
+--12.Set unique field
+ALTER TABLE Users
+DROP CONSTRAINT PK_Users
+
+ALTER TABLE Users
+ADD CONSTRAINT PK_Users PRIMARY KEY(Id)
+
+ALTER TABLE Users
+ADD CONSTRAINT UQ_Username UNIQUE (Username)
+
+ALTER TABLE Users
+ADD CONSTRAINT CHK_Username_Lenght CHECK (LEN(Username) >= 3)
+
+--13.Move Database
+CREATE DATABASE [Movies]
+
+CREATE TABLE [Directors]
+(
+   [Id] INT IDENTITY(1,1) PRIMARY KEY,
+   [DirectorName] VARCHAR(50),
+   [Notes] NVARCHAR(MAX)
+)
+CREATE TABLE [Genres]
+(
+   [Id] INT IDENTITY(1,1) PRIMARY KEY,
+   [GenreName] VARCHAR(50),
+   [Notes] NVARCHAR(MAX)
+)
+CREATE TABLE [Categories]
+(
+   [Id] INT IDENTITY(1,1) PRIMARY KEY,
+   [CategoryName] VARCHAR(50),
+   [Notes] NVARCHAR(MAX)
+)
+CREATE TABLE [Movies]
+(
+   [Id] INT IDENTITY(1,1) PRIMARY KEY,
+   [Title] VARCHAR(50) NOT NULL,
+   [DirectorId] INT ,
+   [CopyrightYear] INT NOT NULL,
+   [Length] INT, 
+   [GenreId] INT NOT NULL,
+   [CategoryId] INT NOT NULL,
+   [Rating] VARCHAR(10),
+   [Notes] TEXT,
+   CONSTRAINT FK_Movies_Director FOREIGN KEY (DirectorId) REFERENCES Directors(Id),
+   CONSTRAINT FK_Movies_Genres FOREIGN KEY (GenreId) REFERENCES Genres(Id),
+   CONSTRAINT FK_Movies_Category FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+)
+
+INSERT INTO Directors (DirectorName,Notes)
+VALUES
+('Director1','Long notes 1'),
+('Director2','Long notes 2'),
+('Director3','Long notes 3'),
+('Director4','Long notes 4'),
+('Director5','Long notes 5')
+
+INSERT INTO Genres (GenreName,Notes)
+VALUES
+('Genre1','Long notes 1'),
+('Genre2','Long notes 2'),
+('Genre3','Long notes 3'),
+('Genre4','Long notes 4'),
+('Genre5','Long notes 5')
+
+INSERT INTO Categories (CategoryName,Notes)
+VALUES
+('CategoryName1', 'Very Long note1'),
+('CategoryName2', 'Very Long note2'),
+('CategoryName3', 'Very Long note3'),
+('CategoryName4', 'Very Long note4'),
+('CategoryName5', 'Very Long note5')
+
+INSERT INTO Movies (Title,DirectorId,CopyrightYear,Length,GenreId,CategoryId,Rating,Notes)
+VALUES
+('Movie1',1,2001,141,1,1,'PG-1','Long notes'),
+('Movie2',2,2002,142,2,2,'PG-2','Long notes'),
+('Movie3',3,2003,143,3,3,'PG-3','Long notes'),
+('Movie4',4,2004,144,4,4,'PG-4','Long notes'),
+('Movie5',5,2005,145,5,5,'PG-5','Long notes')
