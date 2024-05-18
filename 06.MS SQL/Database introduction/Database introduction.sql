@@ -61,7 +61,7 @@ VALUES
 ('Ivan Leshnika',NULL,1.25,99.12,'m','1988-01-10','John Doe is a fictional character.'),
 ('Dimitar Bobara',NULL,1.11,77.72,'m','1991-04-03','John Doe is a fictional character.')
 
---08.Create Table Users
+--08.Create Table Usersssssss
 CREATE TABLE Users
 (
 Id INT IDENTITY(1,1) PRIMARY KEY,
