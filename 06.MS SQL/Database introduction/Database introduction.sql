@@ -394,7 +394,7 @@ INSERT INTO Occupancies (EmployeeId, AccountNumber, RoomNumber) VALUES
 	(2, 44, 2),
 	(3, 33, 3)
 
---Basic Insert
+--19. Basic Insert
 CREATE DATABASE SoftUni
 
 CREATE TABLE Towns(
@@ -475,6 +475,16 @@ SET Salary+=Salary*0.1
 
 SELECT Salary FROM Employees
 
+--Exercise 23 
+
+UPDATE Payments
+SET TaxRate-=0.03*TaxRate
+
+SELECT TaxRate FROM Payments
+
+--Exercise 24
+TRUNCATE TABLE Occupancies
+DELETE FROM Occupancies
 
 
 
