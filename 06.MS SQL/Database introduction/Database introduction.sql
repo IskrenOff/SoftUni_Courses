@@ -446,6 +446,11 @@ INSERT INTO Employees (FirstName, MiddleName, LastName, JobTitle, DepartmentId, 
 	('Georgi', 'Teziev', 'Ivanov', 'CEO',	2,	CONVERT(datetime, '09/12/2007', 103), 3000.00),
 	('Peter', 'Pan', 'Pan', 'Intern',	3,	CONVERT(datetime, '28/08/2016', 103), 599.88)
 
+--Exercise 19
+SELECT * FROM Towns
+SELECT * FROM Departments
+SELECT * FROM Employees
+
 --Exercise 20
 SELECT * FROM Towns
 ORDER BY [Name]
