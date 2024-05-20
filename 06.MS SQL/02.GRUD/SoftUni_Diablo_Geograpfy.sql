@@ -38,3 +38,51 @@ SELECT CONCAT(FirstName, ' ',  MiddleName + ' ', LastName)
 SELECT FirstName, LastName 
   FROM Employees
  WHERE ManagerID IS NULL
+
+--12. Find All Employees with a Salary More Than 50000
+SELECT FirstName, LastName, Salary
+  FROM Employees
+ WHERE Salary >= 50000
+ ORDER BY Salary DESC
+
+--13. Find 5 Best Paid Employees
+SELECT TOP(5) FirstName, LastName
+  FROM Employees
+ ORDER BY Salary DESC
+
+--14. Find All Employees Except Marketing
+SELECT FirstName, LastName
+  FROM Employees
+ WHERE DepartmentID <> 4
+
+--15. Sort Employees Table
+SELECT * FROM Employees
+ ORDER BY Salary DESC,
+          FirstName ASC,
+		  LastName DESC,
+		  MiddleName ASC
+
+--16. Create View Employees with Salaries
+GO
+
+CREATE VIEW V_EmployeesSalaries AS
+SELECT FirstName, LastName, Salary
+  FROM Employees
+
+GO
+
+SELECT * FROM V_EmployeesSalaries
+
+--17. Create View Employees with Job Titles
+GO
+
+CREATE VIEW V_EmployeeNameJobTitle 
+         AS
+     SELECT CONCAT(FirstName, ' ', MiddleName, ' ', LastName) 
+	     AS [Full Name], JobTitle
+		 AS [Job Title]
+       FROM Employees
+
+GO
+
+SELECT * FROM V_EmployeeNameJobTitle
