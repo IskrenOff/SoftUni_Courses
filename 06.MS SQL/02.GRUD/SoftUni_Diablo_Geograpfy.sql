@@ -86,3 +86,28 @@ CREATE VIEW V_EmployeeNameJobTitle
 GO
 
 SELECT * FROM V_EmployeeNameJobTitle
+
+--18. Distinct Job Titles
+SELECT DISTINCT JobTitle
+  FROM Employees
+
+--19. Find First 10 Started Projects
+SELECT TOP(10) * 
+  FROM Projects
+ ORDER BY StartDate, Name
+
+--20. Last 7 Hired Employees
+SELECT TOP(7) FirstName, LastName, HireDate
+  FROM Employees
+ ORDER BY HireDate DESC
+
+--21. Increase Salaries
+UPDATE Employees
+   SET Salary += Salary * 0.12
+ WHERE DepartmentID IN (1, 2, 4, 11)
+
+ SELECT Salary FROM Employees
+
+
+ --Geography Db
+ --22.All Mountain Peaks
