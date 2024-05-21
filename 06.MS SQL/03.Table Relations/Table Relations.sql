@@ -124,3 +124,20 @@ REFERENCES Exams(ExamID)
 ALTER TABLE StudentsExams
 ADD CONSTRAINT PK_StudentsExams
 PRIMARY KEY(StudentID, ExamID)
+
+-- 04. Self-Referencing 
+CREATE TABLE Teachers(
+	TeacherID INT PRIMARY KEY,
+	[Name] NVARCHAR(50) NOT NULL,
+	ManagerID INT FOREIGN KEY REFERENCES Teachers(TeacherID)
+)
+
+INSERT INTO Teachers (TeacherID, [Name], ManagerID) VALUES 
+	(101, 'John', NULL),
+	(102, 'Maya', 106),
+	(103, 'Silvia', 106),
+	(104, 'Ted', 105),
+	(105, 'Mark', 101),
+	(106, 'Greta', 101)
+
+SELECT * FROM Teachers
