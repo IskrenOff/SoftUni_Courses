@@ -71,3 +71,52 @@ USE [Geography]
   SELECT CountryName, IsoCode FROM Countries
    WHERE CountryName LIKE '%a%a%a%'
 ORDER BY IsoCode
+
+-- 13. Mix of Peak and River Names 
+SELECT Peaks.PeakName, Rivers.RiverName, 
+LOWER((Peaks.PeakName) + SUBSTRING(Rivers.RiverName,2,LEN(Rivers.Rivername))) AS 'Mix' 
+FROM Peaks
+JOIN Rivers
+ON RIGHT(Peaks.PeakName,1) = LEFT(Rivers.RiverName,1)
+ORDER BY Mix
+
+USE Diablo
+-- 14. Games From 2011 and 2012 Year 
+  SELECT TOP(50) [Name], FORMAT([Start], 'yyyy-MM-dd') AS [Start]
+    FROM Games
+   WHERE DATEPART([YEAR], [Start]) IN (2011, 2012)
+ORDER BY [Start]
+
+-- 15. User Email Providers 
+  SELECT Username, SUBSTRING(Email, CHARINDEX('@', Email) + 1, LEN(Email) - CHARINDEX('@', Email) + 1) 
+      AS [Email Provider]
+    FROM Users
+ORDER BY [Email Provider], Username ASC
+
+-- 16. Get Users with IP Address Like Pattern 
+SELECT Username, IpAddress FROM Users
+WHERE IpAddress LIKE '___.1%.%.___'
+ORDER BY Username
+
+-- 17. Show All Games with Duration & Part of the Day 
+SELECT [Name] AS [Game],
+  CASE 
+      WHEN DATEPART(HOUR, Start) BETWEEN 0 AND 11 THEN 'Morning'
+      WHEN DATEPART(HOUR, Start) BETWEEN 12 AND 17 THEN 'Afternoon'
+      ELSE 'Evening'
+  END AS [Part of the day],
+  CASE
+      WHEN Duration <= 3 THEN 'Extra Short'
+	  WHEN Duration BETWEEN 4 AND 6 THEN 'Short'
+	  WHEN Duration > 6 THEN 'Long'
+	  ELSE 'Extra Long'
+  END AS [Duration]
+  FROM Games
+ORDER BY [Name], [Duration], [Part of the day]
+
+USE Orders
+-- 18. Orders Table 
+SELECT ProductName, OrderDate, 
+       DATEADD(DAY, 3, OrderDate) AS [Pay Due],
+	   DATEADD(MONTH, 1, OrderDate) AS [Delivery Due]
+  FROM Orders
