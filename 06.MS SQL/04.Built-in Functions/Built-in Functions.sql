@@ -46,3 +46,28 @@ CREATE VIEW V_EmployeesHiredAfter2000
        FROM Employees
 	  WHERE CAST(DATEPART(YEAR, HireDate) AS INT) > 2000
 GO
+
+-- 09. Length of Last Name 
+SELECT FirstName, LastName
+  FROM Employees
+ WHERE LEN(LastName) = 5
+
+-- 10. Rank Employees by Salary 
+  SELECT EmployeeID, FirstName, LastName, Salary, DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+    FROM Employees
+   WHERE Salary BETWEEN 10000 AND 50000
+ORDER BY Salary DESC
+
+-- 11. Find All Employees with Rank 2
+SELECT * FROM
+   (SELECT EmployeeID, FirstName, LastName, Salary, DENSE_RANK() OVER (PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+     FROM Employees
+    WHERE Salary BETWEEN 10000 AND 50000) AS temp
+   WHERE temp.[Rank] = 2
+ORDER BY temp.Salary DESC
+
+USE [Geography]
+-- 12. Countries Holding 'A' 3 or More Times 
+  SELECT CountryName, IsoCode FROM Countries
+   WHERE CountryName LIKE '%a%a%a%'
+ORDER BY IsoCode
