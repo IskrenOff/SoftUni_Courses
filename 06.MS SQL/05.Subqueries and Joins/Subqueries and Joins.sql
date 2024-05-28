@@ -66,7 +66,7 @@ ORDER BY e.EmployeeID
 
 SELECT * FROM Projects
 
--- Exercise 8
+-- 08. Employee 24 
 SELECT e.EmployeeID,
        e.FirstName, 
 	   CASE WHEN p.StartDate >= '2005-01-01' THEN NULL
@@ -80,7 +80,7 @@ SELECT e.EmployeeID,
 
 -- instead of case when  IIF(p.StartDate >= '2005-01-01', NULL, p.[Name]) AS [ProjectName]
 
--- Exercise 9
+-- 09. Employee Manager 
   SELECT e1.EmployeeID, e1.FirstName, e1.ManagerID, e2.FirstName AS [ManagerName] 
     FROM Employees AS e1
     JOIN Employees AS e2
@@ -88,7 +88,7 @@ SELECT e.EmployeeID,
    WHERE e2.EmployeeID IN (3, 7)
 ORDER BY e1.EmployeeID
 
--- Exercise 10
+-- 10. Employees Summary 
   SELECT TOP(50) e1.EmployeeID, 
          CONCAT(e1.FirstName, ' ', e1.LastName) AS [EmployeeName],
 		 CONCAT(e2.FirstName, ' ', e2.LastName) AS [ManagerName],
@@ -100,7 +100,7 @@ LEFT JOIN Departments AS d
 	  ON d.DepartmentID = e1.DepartmentID
 ORDER BY e1.EmployeeID
 
--- Exercise 11
+-- 11. Min Average Salary 
 SELECT MIN(av.[AverageSalary]) AS [MinAverageSalary] 
  FROM(
       SELECT AVG(e.Salary) AS [AverageSalary] 
@@ -109,7 +109,7 @@ SELECT MIN(av.[AverageSalary]) AS [MinAverageSalary]
 	
 USE [Geography]
 
--- Exercise 12
+-- 12. Highest Peaks in Bulgaria 
   SELECT mc.CountryCode, m.MountainRange, p.PeakName, p.Elevation 
     FROM Peaks AS p
     JOIN Mountains AS m
@@ -119,7 +119,7 @@ USE [Geography]
    WHERE mc.CountryCode = 'BG' AND p.Elevation > 2835
 ORDER BY p.Elevation DESC
 
--- Exercise 13
+-- 13. Count Mountain Ranges
   SELECT CountryCode, COUNT(MountainId) AS [MountainRanges]
     FROM MountainsCountries
 GROUP BY CountryCode
