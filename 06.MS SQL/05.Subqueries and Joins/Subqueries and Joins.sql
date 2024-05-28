@@ -1,13 +1,13 @@
 USE SoftUni
 
--- Exercise 1
+-- 01. Employee Address 
 SELECT TOP(5) e.EmployeeID, e.JobTitle, e.AddressID, a.AddressText 
     FROM Employees AS e
     JOIN Addresses AS a
       ON e.AddressID = a.AddressID
 ORDER BY a.AddressID
 
--- Exercise 2
+-- 02. Addresses with Towns 
 SELECT TOP(50) 
 	e.FirstName, 
 	e.LastName, 
@@ -20,7 +20,7 @@ SELECT TOP(50)
 	    ON t.TownID = a.TownID 
 ORDER BY FirstName, LastName
 
--- Exercise 3
+-- 03. Sales Employees 
   SELECT e.EmployeeID, e.FirstName, e.LastName, d.[Name] AS [DepartmentName]
     FROM Employees AS e
     JOIN Departments AS d
