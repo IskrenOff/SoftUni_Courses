@@ -28,7 +28,7 @@ ORDER BY FirstName, LastName
    WHERE d.[Name] = 'Sales'
 ORDER BY e.EmployeeID 
 
--- Exercise 4
+-- 04. Employee Departments 
   SELECT TOP(5) EmployeeID, FirstName, Salary, d.[Name] AS [DepartmentName]
     FROM Employees AS e
     JOIN Departments AS d
@@ -36,7 +36,7 @@ ORDER BY e.EmployeeID
    WHERE Salary > 15000
 ORDER BY e.DepartmentID
 
--- Exercise 5
+-- 05. Employees Without Projects 
   SELECT TOP(3) e.EmployeeID, e.FirstName
     FROM Employees AS e
 LEFT JOIN EmployeesProjects AS ep
@@ -46,7 +46,7 @@ ORDER BY e.EmployeeID
 
 SELECT * FROM Projects
 
--- Exercise 6
+-- 06. Employees Hired After 
   SELECT e.FirstName, e.LastName, e.HireDate, d.[Name] AS [DeptName]
     FROM Employees AS e
     JOIN Departments AS d
@@ -54,7 +54,7 @@ SELECT * FROM Projects
    WHERE e.HireDate > '1/1/1999'
 ORDER BY e.HireDate
 
--- Exercise 7
+-- 07. Employees With Project
   SELECT TOP(5) e.EmployeeID, e.FirstName, p.[Name] AS [ProjectName]
     FROM Employees AS e
     JOIN EmployeesProjects AS ep
