@@ -125,7 +125,7 @@ ORDER BY p.Elevation DESC
 GROUP BY CountryCode
   HAVING CountryCode IN ('BG', 'RU', 'US')
 
--- Exercise 14
+-- 14. Countries With or Without Rivers 
    SELECT TOP(5) c.CountryName, r.RiverName 
      FROM Countries AS c
 LEFT JOIN CountriesRivers AS cr
@@ -135,7 +135,7 @@ LEFT JOIN Rivers AS r
     WHERE c.ContinentCode = 'AF'
  ORDER BY c.CountryName
 	 
--- Exercise 15
+-- 15. Continents and Currencies
  SELECT dt.ContinentCode, dt.CurrencyCode, dt.CurrencyUsage 
    FROM
         (SELECT c.ContinentCode, 
@@ -148,7 +148,7 @@ LEFT JOIN Rivers AS r
    WHERE dt.[Rank] = 1
 ORDER BY dt.ContinentCode
 
--- Exercise 16
+-- 16. Countries Without any Mountains 
 SELECT COUNT(*) 
   FROM  (
        SELECT c.CountryName FROM Countries AS c
@@ -156,13 +156,7 @@ SELECT COUNT(*)
            ON c.CountryCode = mc.CountryCode
 	    WHERE mc.MountainId IS NULL) AS dt
 
-   SELECT COUNT(*)
-     FROM Countries AS c
-LEFT JOIN MountainsCountries AS mc
-       ON c.CountryCode = mc.CountryCode
-	WHERE mc.MountainId IS NULL
-
--- Exercise 17
+-- 17. Highest Peak and Longest River by Country
    SELECT TOP(5) dt.CountryName, MAX(dt.Elevation) AS [HighestPeakElevation], MAX(dt.[Length]) AS [LongestRiverLength]
      FROM(
    SELECT c.CountryName, r.[Length], p.Elevation
@@ -180,7 +174,7 @@ LEFT JOIN Rivers r
  GROUP BY dt.CountryName
  ORDER BY MAX(dt.Elevation) DESC, MAX(dt.[Length]) DESC, dt.CountryName
 
--- Exercise 18
+-- 18. Highest Peak Name and Elevation by Country
 SELECT TOP(5) dt.CountryName AS[Country],
        IIF(dt.PeakName IS NULL, '(no highest peak)', dt.PeakName) AS [Highest Peak Name],
 	   ISNULL(dt.Elevation, 0) AS [Highest Peak Elevation],
