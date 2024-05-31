@@ -87,30 +87,23 @@ SELECT SUM([Difference]) AS [SumDifference] FROM (SELECT FirstName AS [Host Wiza
 	   LEAD(FirstName) OVER(ORDER BY Id) AS [Guest Wizard],
 	   LEAD(DepositAmount) OVER(ORDER BY Id) AS [Guest Wizard Deposit],
 	   DepositAmount - LEAD(DepositAmount) OVER(ORDER BY Id) AS [Difference]
-	   FROM WizzardDeposits) AS DiffTable
-	   
-
-SELECT SUM(k.[Difference])
-  FROM(
-SELECT w.DepositAmount - (SELECT wd.DepositAmount FROM WizzardDeposits AS wd WHERE wd.Id = w.Id + 1) AS [Difference]
-  FROM WizzardDeposits AS w ) 
-    AS k
+	   FROM WizzardDeposits) AS DiffTable	  
 
 USE SoftUni
 
--- Exercise 13
+-- 13. Departments Total Salaries 
   SELECT DepartmentID, SUM(Salary) AS [TotalSalary] 
     FROM Employees
 GROUP BY DepartmentID
 ORDER BY DepartmentID
 
--- Exercise 14
+-- 14. Employees Minimum Salaries
   SELECT DepartmentID, MIN(Salary)
     FROM Employees
    WHERE DepartmentID IN (2, 5, 7) AND HireDate > '01/01/2000'
 GROUP BY DepartmentID
 
--- Exercise 15
+-- 15. Employees Average Salaries 
 SELECT * 
   INTO [New employees Table]
   FROM Employees
@@ -127,7 +120,7 @@ UPDATE [New employees Table]
     FROM [New employees Table]
 GROUP BY DepartmentID
 
--- Exercise 16
+-- 16. Employees Maximum Salaries 
   SELECT DepartmentID, MAX(Salary) AS [MaxSalary] 
     FROM Employees
 GROUP BY DepartmentID
