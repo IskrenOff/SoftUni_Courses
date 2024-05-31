@@ -126,12 +126,12 @@ GROUP BY DepartmentID
 GROUP BY DepartmentID
   HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 
--- Exercise 17
+-- 17. Employees Count Salaries 
 SELECT COUNT(Salary) AS [Count]
   FROM Employees
  WHERE ManagerID IS NULL
 
--- Exercise 18
+-- 18. *3rd Highest Salary
 SELECT DISTINCT DepartmentID, Salary AS [ThirdHighestSalary] 
   FROM(
 		SELECT DepartmentID, Salary, DENSE_RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS [Rank] FROM Employees
@@ -145,7 +145,7 @@ SELECT DepartmentID, Salary AS [ThirdHighestSalary] FROM
 			GROUP BY DepartmentID, Salary) AS [Rank Table]
 WHERE Ranking = 3
 
--- Exercise 19
+-- 19. **Salary Challenge
 SELECT TOP(10) e.FirstName, e.LastName, e.DepartmentID
   FROM Employees AS e
  WHERE e.Salary > (
